@@ -8,6 +8,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:gymhouse_project/Screens/Welcome/welcomescreen.dart';
 
+const imageGym = 'gymhouse_project\assets\images\Gym-rafiki 1.svg';
+
 class onboardingscreen extends StatefulWidget {
   const onboardingscreen({Key? key}) : super(key: key);
 
@@ -43,8 +45,10 @@ class _onboardingscreenState extends State<onboardingscreen> {
               Expanded(
                 child: PageView.builder(
                   itemBuilder: (context, index) => onboardcontent(
-                    image: "assets/images/Gym-rafiki 1.png",
-                    title: "Achieve your \nbest performance \nhere !" ,
+                    image: "assets/images/Gym-rafiki 1.svg",
+                    title: "Achieve your                ",
+                    title2: "best performance           ",
+                    title3: "here !                           ",
                     description:
                         "Attain the perfect balance between strength and flexibility with \nGymhouse."
                   ),
@@ -90,16 +94,18 @@ class onboardcontent extends StatelessWidget {
     Key? key,
     required this.image,
     required this.title,
+    required this.title2,
+    required this.title3,
     required this.description,
   }) : super(key: key);
 
-  final String image, title, description;
+  final String image, title, title2, title3, description;
 
   @override
   Widget build(BuildContext context) {
     return Column(children: [
       const Spacer(),
-      Image.asset(
+      SvgPicture.asset(
         image,
         height: 400,
       ),
@@ -109,12 +115,34 @@ class onboardcontent extends StatelessWidget {
         textAlign: TextAlign.left,
         style: Theme.of(context)
             .textTheme
-            
             .headlineLarge!
             .copyWith(
               fontWeight: FontWeight.w700,
               color: Colors.white),
       ),
+
+      Text(
+        title2,
+        textAlign: TextAlign.justify,
+        style: Theme.of(context)
+            .textTheme
+            .headlineLarge!
+            .copyWith(
+              fontWeight: FontWeight.w700,
+              color: Color(0xFFFFDE69)),
+      ),
+
+      Text(
+        title3,
+        textAlign: TextAlign.justify,
+        style: Theme.of(context)
+            .textTheme
+            .headlineLarge!
+            .copyWith(
+              fontWeight: FontWeight.w700,
+              color: Colors.white),
+      ),
+
       const SizedBox(
         height: 16,
       ),
