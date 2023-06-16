@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:gymhouse_project/Components/HomePages/file_navigation.dart';
+import 'package:gymhouse_project/Components/HomePages/homepage.dart';
 import 'package:gymhouse_project/Components/custom_surfix_icon.dart';
 import 'package:gymhouse_project/Components/default_button_custom_color.dart';
 import 'package:gymhouse_project/Screens/Register/registerscreens.dart';
@@ -54,7 +56,9 @@ class _SignInform extends State<SignInform> {
           DefaultButtonCustomeColor(
             color: kPrimaryColor,
             text: "Login",
-            press: () {},
+            press: () {
+              Navigator.push(context, MaterialPageRoute(builder: (context) => BtnNavBar()));
+            },
           ),
           SizedBox(
             height: 20,
