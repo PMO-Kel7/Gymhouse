@@ -9,9 +9,6 @@ class welcomescreens extends StatelessWidget {
   Widget build(BuildContext context) {
     SizeConfig().init(context);
     return Scaffold(
-      appBar: AppBar(
-        automaticallyImplyLeading: false,
-      ),
       body: welcomecomponent(),
     );
   }

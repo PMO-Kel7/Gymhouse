@@ -82,6 +82,21 @@ OutlineInputBorder outlineInputBorder() {
  
 // Style for title
 var mTitleStyle = GoogleFonts.notoSans(
+    fontWeight: FontWeight.w500, color: mTitleColor, fontSize: 20);
+    
+var mTitleStyleCreateAccount = GoogleFonts.notoSans(
+    fontWeight: FontWeight.w700, color: mTitleColor, fontSize: 20);
+
+var mTitleStyleGymhouse = GoogleFonts.nunitoSans(
+    fontWeight: FontWeight.w700, color: mBackgroundColor, fontSize: 30);
+
+var mTitleStyleWelcome = GoogleFonts.nunitoSans(
+    fontWeight: FontWeight.w700, color: mBackgroundColor, fontSize: 40);
+
+var mTitleStyleLogin = GoogleFonts.notoSans(
+    fontWeight: FontWeight.w700, color: mTitleColor, fontSize: 30);
+
+var mTitleStyle2 = GoogleFonts.notoSans(
     fontWeight: FontWeight.w600, color: mTitleColor, fontSize: 14);
  
 var mTitleStyleColorWhite = GoogleFonts.notoSans(

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:gymhouse_project/Components/Register/registercomponent.dart';
 import 'package:gymhouse_project/size_config.dart';
 
 
@@ -12,7 +13,7 @@ class registerscreens extends StatelessWidget {
       appBar: AppBar(
         automaticallyImplyLeading: false,
       ),
-      // body: logincomponent(),
+      body: registercomponent(),
     );
   }
 }

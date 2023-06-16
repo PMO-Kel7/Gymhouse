@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:gymhouse_project/Components/Login/loginform.dart';
 import 'package:gymhouse_project/size_config.dart';
 import 'package:gymhouse_project/utils/constant.dart';
-import 'package:simple_shadow/simple_shadow.dart';
+// import 'package:simple_shadow/simple_shadow.dart';
 
 class logincomponent extends StatefulWidget {
   @override
@@ -10,7 +10,6 @@ class logincomponent extends StatefulWidget {
 }
 
 class _logincomponent extends State<logincomponent> {
-
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -22,41 +21,39 @@ class _logincomponent extends State<logincomponent> {
           child: SingleChildScrollView(
             child: Column(
               children: [
-                  SizedBox(
-                    height: SizeConfig.screenHeight * 0.04,
+                SizedBox(
+                  height: SizeConfig.screenHeight * 0.04,
+                ),
+                SizedBox(
+                  height: SizeConfig.screenHeight * 0.04,
+                ),
+                Padding(
+                  padding: EdgeInsets.only(left: 10, bottom: 5),
+                  child: Align(
+                    alignment: Alignment.centerLeft,
+                    child: Text(
+                      "Welcome Back!!!",
+                      style: mTitleStyle,
+                    ),
                   ),
-                  SizedBox(
-                    height: SizeConfig.screenHeight * 0.04,
+                ),
+                Padding(
+                  padding: EdgeInsets.only(left: 10, bottom: 70),
+                  child: Align(
+                    alignment: Alignment.centerLeft,
+                    child: Text(
+                      "Login",
+                      style: mTitleStyleLogin,
+                    ),
                   ),
-                  SimpleShadow(
-                      child: Image.asset(
-                      "assets/images/Gym_login.png",
-                      height: 150, 
-                      width: 202 ,
-                      ),
-                      opacity: 0.5,
-                      color: kSecondaryColor,
-                      offset: Offset(5, 5),
-                      sigma: 2,
-                    ),
-                    Padding(
-                      padding: EdgeInsets.only(left: 10),
-                      child: Row(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text("Welcome Back!!!", style: mTitleStyle,
-                          )
-                        ],
-                      )
-                    ),
-                    SizedBox(
-                      height: 20,
-                    ),
-                    SignInform()
-                ]),
+                ),
+                SizedBox(height: 180),
+                SignInform(),
+              ],
             ),
+          ),
         ),
-      )
+      ),
     );
   }
 }

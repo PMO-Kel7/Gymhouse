@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:gymhouse_project/Screens/Login/loginscreens.dart';
+// import 'package:gymhouse_project/Screens/Login/loginscreens.dart';
+import 'package:gymhouse_project/Screens/Sambutan/sambutanscreens.dart';
+// import 'package:gymhouse_project/Screens/Login/loginscreens.dart';
+// import 'package:gymhouse_project/Screens/Sambutan/sambutanscreens.dart';
 // import 'package:gymhouse_project/Screens/Login/loginscreens.dart';
 // import 'package:gymhouse_project/Screens/Sambutan/sambutanscreens.dart';
 // import 'package:gymhouse_project/Screens/Login/loginscreens.dart';
@@ -17,7 +20,7 @@ void main() async{
     MaterialApp(
       title: "Gymhouse",
       theme: theme(),
-      initialRoute: loginscreens.routeName,
+      initialRoute: onboarding_screens.routeName,
       routes: routes,
       debugShowCheckedModeBanner: false,
     )

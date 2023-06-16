@@ -78,16 +78,16 @@ class _SignInform extends State<SignInform> {
     return TextFormField(
       controller: txtEmailAddress,
       keyboardType: TextInputType.emailAddress,
-      style: mTitleStyle,
+      style: mTitleStyle2,
       decoration: InputDecoration(
         labelText: 'Email address',
         hintText: 'info@example.com',
         labelStyle: TextStyle(
           color: focusNode.hasFocus ? mSubtitleColor : kPrimaryColor),
           floatingLabelBehavior: FloatingLabelBehavior.always,
-          suffixIcon: CustomSurffixIcon(
-            svgIcon: "assets/icons/Eye.svg",
-            )),
+          // suffixIcon: CustomSurffixIcon(
+          //   svgIcon: "assets/icons/Eye.svg",
+            ),
     );
   }
 
@@ -95,15 +95,15 @@ class _SignInform extends State<SignInform> {
     return TextFormField(
       controller: txtPassword,
       obscureText: true,
-      style: mTitleStyle,
+      style: mTitleStyle2,
       decoration: InputDecoration(
-        labelText: '',
+        labelText: 'Password',
         hintText: 'Masukkan password anda',
         labelStyle: TextStyle(
           color: focusNode.hasFocus ? mSubtitleColor : kPrimaryColor),
           floatingLabelBehavior: FloatingLabelBehavior.always,
           suffixIcon: CustomSurffixIcon(
-            svgIcon: "assets/icons/Lock.svg",
+            svgIcon: "assets/icons/Eye.svg",
             )),
     );
   }

@@ -1,66 +1,93 @@
 import 'package:flutter/material.dart';
-import 'package:gymhouse_project/size_config.dart';
+import 'package:flutter_svg/flutter_svg.dart';
+import 'package:gymhouse_project/Screens/Login/loginscreens.dart';
+import 'package:gymhouse_project/Screens/Register/registerscreens.dart';
+// import 'package:gymhouse_project/Components/default_button_custom_color.dart';
 import 'package:gymhouse_project/utils/constant.dart';
-import 'package:simple_shadow/simple_shadow.dart';
 
 class welcomecomponent extends StatefulWidget {
   @override
-  _welcomecomponent createState() => _welcomecomponent();
+  _welcomecomponentState createState() => _welcomecomponentState();
 }
 
-class _welcomecomponent extends State<welcomecomponent> {
-
+class _welcomecomponentState extends State<welcomecomponent> {
   @override
   Widget build(BuildContext context) {
-    
-    return SafeArea(
-      child: SizedBox(
-        width: double.infinity,
-        child: Padding(
-          
-          padding: EdgeInsets.symmetric(
-              horizontal: getProportionateScreenHeight(20)),
-          child: SingleChildScrollView(
-            child: Column(
-              children: [
-                  SizedBox(
-                    height: SizeConfig.screenHeight * 0.04,
-                  ),
-                  SizedBox(
-                    height: SizeConfig.screenHeight * 0.04,
-                  ),
-                    Padding(
-                      padding: EdgeInsets.only(right: 10),
-                      child: Row(
-                        crossAxisAlignment: CrossAxisAlignment.end,
-                        children: [
-                          Text("Gymhouse", style: mTitleStyle,
-                          )
-                        ],
-                      )
-                    ),
-                    SizedBox(
-                      height: 20,
-                    ),
-                  SimpleShadow(
-                      child: Image.asset(
-                      "assets/images/Gym_login.png",
-                      height: 150, 
-                      width: 202 ,
-                      ),
-                      opacity: 0.5,
-                      color: kSecondaryColor,
-                      offset: Offset(5, 5),
-                      sigma: 2,
-                    ),
-                    SizedBox(
-                      height: 20,
-                    ),
-                    // SignInform()
-                ]),
+    return Scaffold(
+      backgroundColor: Color(0xFF050522),
+      body: Padding(
+        padding: const EdgeInsets.all(20.0),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            SizedBox(height: 60),
+            Text(
+              "Gymhouse",
+              style: mTitleStyleGymhouse,
+              textAlign: TextAlign.center,
             ),
+            SizedBox(height: 20),
+            SvgPicture.asset(
+              "assets/images/Gym-amico 1.svg",
+              height: 200,
+            ),
+            SizedBox(height: 80),
+            Text(
+              "Welcome",
+              style: mTitleStyleWelcome,
+              textAlign: TextAlign.center,
+            ),
+            SizedBox(height: 80),
+            Container(
+              margin: EdgeInsets.only(left: 20, right: 20),
+              padding: EdgeInsets.all(17.0),
+              decoration: BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.circular(10.0),
+              ),
+              child: InkWell(
+                onTap: () {
+                  Navigator.pushNamed(context, registerscreens.routeName);
+                },
+                child: Column(
+                  children: [
+                    Text(
+                      'Create Account',
+                      textAlign: TextAlign.center,
+                      style: mTitleStyleCreateAccount,
+                    ),
+                  ],
+                ),
+              ),
+            ),
+            SizedBox(
+              height: 20,
+            ),
+            Container(
+              margin: EdgeInsets.only(left: 20, right: 20),
+              padding: EdgeInsets.all(17.0),
+              decoration: BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.circular(10.0),
+              ),
+              child: InkWell(
+                onTap: () {
+                  Navigator.pushNamed(context, loginscreens.routeName);
+                },
+                child: Column(
+                  children: [
+                    Text(
+                      'Login',
+                      textAlign: TextAlign.center,
+                      style: mTitleStyleCreateAccount,
+                    ),
+                  ],
+                ),
+              ),
+            ),
+          ],
         ),
-      )
+      ),
     );
   }
 }
