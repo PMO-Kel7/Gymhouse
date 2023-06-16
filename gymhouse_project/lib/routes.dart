@@ -12,5 +12,4 @@ final Map<String, WidgetBuilder> routes = {
   loginscreens.routeName: (context) => loginscreens(),
   registerscreens.routeName:(context) => registerscreens(),
   onboarding_screens.routeName:(context) => onboardingscreen()
-  
 };
