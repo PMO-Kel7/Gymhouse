@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:gymhouse_project/Components/HomePages/file_navigation.dart';
+import 'package:gymhouse_project/Components/HomePages/homepage.dart';
 import 'package:gymhouse_project/Components/custom_surfix_icon.dart';
 import 'package:gymhouse_project/Components/default_button_custom_color.dart';
 import 'package:gymhouse_project/Screens/Register/registerscreens.dart';
@@ -54,7 +56,9 @@ class _SignInform extends State<SignInform> {
           DefaultButtonCustomeColor(
             color: kPrimaryColor,
             text: "Login",
-            press: () {},
+            press: () {
+              Navigator.push(context, MaterialPageRoute(builder: (context) => BtnNavBar()));
+            },
           ),
           SizedBox(
             height: 20,
@@ -78,16 +82,16 @@ class _SignInform extends State<SignInform> {
     return TextFormField(
       controller: txtEmailAddress,
       keyboardType: TextInputType.emailAddress,
-      style: mTitleStyle2,
+      style: mTitleStyle,
       decoration: InputDecoration(
         labelText: 'Email address',
         hintText: 'info@example.com',
         labelStyle: TextStyle(
           color: focusNode.hasFocus ? mSubtitleColor : kPrimaryColor),
           floatingLabelBehavior: FloatingLabelBehavior.always,
-          // suffixIcon: CustomSurffixIcon(
-          //   svgIcon: "assets/icons/Eye.svg",
-            ),
+          suffixIcon: CustomSurffixIcon(
+            svgIcon: "assets/icons/Eye.svg",
+            )),
     );
   }
 
@@ -95,15 +99,15 @@ class _SignInform extends State<SignInform> {
     return TextFormField(
       controller: txtPassword,
       obscureText: true,
-      style: mTitleStyle2,
+      style: mTitleStyle,
       decoration: InputDecoration(
-        labelText: 'Password',
+        labelText: '',
         hintText: 'Masukkan password anda',
         labelStyle: TextStyle(
           color: focusNode.hasFocus ? mSubtitleColor : kPrimaryColor),
           floatingLabelBehavior: FloatingLabelBehavior.always,
           suffixIcon: CustomSurffixIcon(
-            svgIcon: "assets/icons/Eye.svg",
+            svgIcon: "assets/icons/Lock.svg",
             )),
     );
   }
