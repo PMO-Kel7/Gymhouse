@@ -1,6 +1,6 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:gymhouse_project/Components/HomePages/file_navigation.dart';
-import 'package:gymhouse_project/Components/HomePages/homepage.dart';
 import 'package:gymhouse_project/Components/custom_surfix_icon.dart';
 import 'package:gymhouse_project/Components/default_button_custom_color.dart';
 import 'package:gymhouse_project/Screens/Register/registerscreens.dart';
@@ -9,107 +9,143 @@ import 'package:gymhouse_project/utils/constant.dart';
 
 class SignInform extends StatefulWidget {
   @override
-  _SignInform createState() => _SignInform();
+  _SignInformState createState() => _SignInformState();
 }
 
-class _SignInform extends State<SignInform> {
+class _SignInformState extends State<SignInform> {
+  final _formKey = GlobalKey<FormState>();
+  TextEditingController _emailController = TextEditingController();
+  TextEditingController _passwordController = TextEditingController();
+  bool _rememberMe = false;
 
-  // final _formKey = GlobalKey<FormState>();
-  String? email_address;
-  String? password;
-  bool? remember = false;
-
-  TextEditingController txtEmailAddress = TextEditingController(),
-      txtPassword = TextEditingController();
-
-  FocusNode focusNode = new FocusNode();
+  void _loginUser() {
+    FirebaseAuth.instance
+        .signInWithEmailAndPassword(
+      email: _emailController.text,
+      password: _passwordController.text,
+    )
+        .then((value) {
+      print("Login Successful");
+      Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context) => BtnNavBar()),
+      );
+    }).catchError((error) {
+      print("Error: ${error.toString()}");
+      showDialog(
+        context: context,
+        builder: (BuildContext context) {
+          return AlertDialog(
+            title: Text("Login Failed"),
+            content: Text("Invalid email or password. Please try again."),
+            actions: [
+              TextButton(
+                child: Text("OK"),
+                onPressed: () {
+                  Navigator.of(context).pop();
+                },
+              ),
+            ],
+          );
+        },
+      );
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
     return Form(
+      key: _formKey,
       child: Column(
         children: [
-          buildEmailaddress(),
+          TextFormField(
+            controller: _emailController,
+            keyboardType: TextInputType.emailAddress,
+            style: mTitleStyle,
+            decoration: InputDecoration(
+              labelText: 'Email address',
+              hintText: 'info@example.com',
+              floatingLabelBehavior: FloatingLabelBehavior.always,
+              suffixIcon: CustomSurffixIcon(
+                svgIcon: "assets/icons/Eye.svg",
+              ),
+            ),
+            validator: (value) {
+              if (value!.isEmpty) {
+                return 'Please enter your email';
+              }
+              if (!value.contains('@')) {
+                return 'Please enter a valid email address';
+              }
+              return null;
+            },
+          ),
           SizedBox(height: getProportionateScreenHeight(20)),
-          buildPassword(),
+          TextFormField(
+            controller: _passwordController,
+            obscureText: true,
+            style: mTitleStyle,
+            decoration: InputDecoration(
+              labelText: 'Password',
+              hintText: 'Enter your password',
+              floatingLabelBehavior: FloatingLabelBehavior.always,
+              suffixIcon: CustomSurffixIcon(
+                svgIcon: "assets/icons/Lock.svg",
+              ),
+            ),
+            validator: (value) {
+              if (value!.isEmpty) {
+                return 'Please enter your password';
+              }
+              if (value.length < 6) {
+                return 'Password must be at least 6 characters long';
+              }
+              return null;
+            },
+          ),
           SizedBox(height: getProportionateScreenHeight(20)),
           Row(
             children: [
               Checkbox(
-                value: remember, 
-                onChanged: (value) 
-                  {setState(() {
-                    remember = value;
-              });
-              }),
+                value: _rememberMe,
+                onChanged: (value) {
+                  setState(() {
+                    _rememberMe = value!;
+                  });
+                },
+              ),
               Text("Remember me"),
               Spacer(),
               GestureDetector(
                 onTap: () {},
                 child: Text(
-                  "Forgot password ?",
+                  "Forgot password?",
                   style: TextStyle(decoration: TextDecoration.underline),
                 ),
-              )
+              ),
             ],
           ),
           DefaultButtonCustomeColor(
             color: kPrimaryColor,
             text: "Login",
             press: () {
-              Navigator.push(context, MaterialPageRoute(builder: (context) => BtnNavBar()));
+              if (_formKey.currentState!.validate()) {
+                _loginUser();
+              }
             },
           ),
-          SizedBox(
-            height: 20,
-            ),
-            //MENGAKTIFKAN FUNGSI KLIK PADA TEKS AGAR BISA KE LAYOUT SELANJUTNYA, GUNAKAN ON TAP
+          SizedBox(height: getProportionateScreenHeight(20)),
           GestureDetector(
-                onTap: () {
-                  //INI UNTUK MEMANGGIL KE LAYOUT SELANJUTNYA
-                  Navigator.pushNamed(context, registerscreens.routeName);
-                },
-                child: Text(
-                  "Don’t have an account? Register",
-                  style: TextStyle(decoration: TextDecoration.underline),
-                ),
-              )
-        ],),
-      );
-  }
-
-  TextFormField buildEmailaddress() {
-    return TextFormField(
-      controller: txtEmailAddress,
-      keyboardType: TextInputType.emailAddress,
-      style: mTitleStyle,
-      decoration: InputDecoration(
-        labelText: 'Email address',
-        hintText: 'info@example.com',
-        labelStyle: TextStyle(
-          color: focusNode.hasFocus ? mSubtitleColor : kPrimaryColor),
-          floatingLabelBehavior: FloatingLabelBehavior.always,
-          suffixIcon: CustomSurffixIcon(
-            svgIcon: "assets/icons/Eye.svg",
-            )),
-    );
-  }
-
-  TextFormField buildPassword() {
-    return TextFormField(
-      controller: txtPassword,
-      obscureText: true,
-      style: mTitleStyle,
-      decoration: InputDecoration(
-        labelText: '',
-        hintText: 'Masukkan password anda',
-        labelStyle: TextStyle(
-          color: focusNode.hasFocus ? mSubtitleColor : kPrimaryColor),
-          floatingLabelBehavior: FloatingLabelBehavior.always,
-          suffixIcon: CustomSurffixIcon(
-            svgIcon: "assets/icons/Lock.svg",
-            )),
+            onTap: () {
+              Navigator.pushNamed(context, registerscreens.routeName);
+            },
+            child: Text(
+              "Don't have an account? Register",
+              style: TextStyle(decoration: TextDecoration.underline),
+            ),
+          ),
+        ],
+      ),
     );
   }
 }
-
