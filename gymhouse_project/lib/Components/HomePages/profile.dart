@@ -11,7 +11,8 @@ class profile extends StatelessWidget {
         .signOut()
         .then((value) {
       print("Signed Out");
-      Navigator.pushNamed(context, loginscreens.routeName);
+      Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context) => loginscreens()), (Route<dynamic> route) =>false);
+      print("Ini logout ");
     }).catchError((error) {
       print("Error ${error.toString()}");
     });
