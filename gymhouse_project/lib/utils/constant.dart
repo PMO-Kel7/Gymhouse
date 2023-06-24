@@ -96,6 +96,10 @@ var mTitleStyleWelcome = GoogleFonts.nunitoSans(
 var mTitleStyleMyprofile = GoogleFonts.nunitoSans(
     fontWeight: FontWeight.w700, color: mBackgroundColor, fontSize: 30);
 
+var mTitleStyleMembership = GoogleFonts.nunitoSans(
+    fontWeight: FontWeight.w700, color: kPrimaryColor, fontSize: 30);
+
+
 var mTitleStyleLogin = GoogleFonts.notoSans(
     fontWeight: FontWeight.w700, color: mTitleColor, fontSize: 30);
 
