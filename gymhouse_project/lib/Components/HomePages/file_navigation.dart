@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:gymhouse_project/Components/HomePages/homepage.dart';
 import 'package:gymhouse_project/Components/HomePages/profile.dart';
+import 'package:gymhouse_project/Components/Membership/membershipform.dart';
 
 class BtnNavBar extends StatefulWidget {
   @override
@@ -17,6 +18,7 @@ class _BottomNavBarState extends State<BtnNavBar> {
     _pages = [
       homepage(),
       profile(),
+      membership(),
     ];
     super.initState();
   }
@@ -49,7 +51,7 @@ class _BottomNavBarState extends State<BtnNavBar> {
                     IconButton(
                       onPressed: () {
                         setState(() {
-                          _currentIndex = 0;
+                          _currentIndex = 2;
                         });
                       },
                       icon: Icon(

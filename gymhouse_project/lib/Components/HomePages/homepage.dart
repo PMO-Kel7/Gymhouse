@@ -12,29 +12,27 @@ class homepage extends StatelessWidget {
       appBar: PreferredSize(
         preferredSize: Size.fromHeight(100),
         child: AppBar(
-        backgroundColor: Color(0xFF050522),
-        elevation: 0,
-        title: Text(
-          '',
-          style: TextStyle(
-            fontSize: 20,
-            fontWeight: FontWeight.bold,
-            color: Colors.white,
+          backgroundColor: Color(0xFF050522),
+          elevation: 0,
+          title: Text(
+            '',
+            style: TextStyle(
+              fontSize: 20,
+              fontWeight: FontWeight.bold,
+              color: Colors.white,
+            ),
+          ),
+          leading: IconButton(
+            icon: Icon(
+              Icons.person,
+              color: Colors.white,
+            ),
+            onPressed: () {
+              Navigator.push(
+                  context, MaterialPageRoute(builder: (context) => profile()));
+            },
           ),
         ),
-        leading: 
-            IconButton(
-              icon: Icon(
-                Icons.person,
-                color: Colors.white,
-              ),
-              onPressed: () {
-    Navigator.push(
-      context,
-      MaterialPageRoute(builder: (context) => profile()));
-              },
-            ),
-      ),
       ),
       body: Padding(
         padding: EdgeInsets.all(20),
