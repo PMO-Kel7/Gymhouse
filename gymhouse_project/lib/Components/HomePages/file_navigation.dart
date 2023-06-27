@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:gymhouse_project/Components/HomePages/homepage.dart';
-import 'package:gymhouse_project/Components/HomePages/profile.dart';
+// import 'package:gymhouse_project/Components/HomePages/profile.dart';
 import 'package:gymhouse_project/Components/Membership/membershipform.dart';
+import 'package:gymhouse_project/Components/WorkoutRoutine/mainwo.dart';
 
 class BtnNavBar extends StatefulWidget {
   @override
@@ -10,17 +11,25 @@ class BtnNavBar extends StatefulWidget {
 
 class _BottomNavBarState extends State<BtnNavBar> {
   int _currentIndex = 0;
+  late PageController _pageController;
 
-  late final List<Widget> _pages;
+  List<Widget> _pages = [
+    // profile(),
+    membership(),
+    homepage(),
+    mainworkout(),
+  ];
 
   @override
   void initState() {
-    _pages = [
-      homepage(),
-      profile(),
-      membership(),
-    ];
+    _pageController = PageController(initialPage: _currentIndex);
     super.initState();
+  }
+
+  @override
+  void dispose() {
+    _pageController.dispose();
+    super.dispose();
   }
 
   @override
@@ -29,7 +38,15 @@ class _BottomNavBarState extends State<BtnNavBar> {
       backgroundColor: Color(0xFF050522),
       body: Stack(
         children: [
-          _pages[_currentIndex],
+          PageView(
+            controller: _pageController,
+            onPageChanged: (index) {
+              setState(() {
+                _currentIndex = index;
+              });
+            },
+            children: _pages,
+          ),
           Positioned(
             left: 0,
             right: 0,
@@ -50,9 +67,11 @@ class _BottomNavBarState extends State<BtnNavBar> {
                   children: [
                     IconButton(
                       onPressed: () {
-                        setState(() {
-                          _currentIndex = 2;
-                        });
+                        _pageController.animateToPage(
+                          0,
+                          duration: Duration(milliseconds: 300),
+                          curve: Curves.easeInOut,
+                        );
                       },
                       icon: Icon(
                         Icons.calendar_month_sharp,
@@ -62,9 +81,11 @@ class _BottomNavBarState extends State<BtnNavBar> {
                     ),
                     IconButton(
                       onPressed: () {
-                        setState(() {
-                          _currentIndex = 0;
-                        });
+                        _pageController.animateToPage(
+                          1,
+                          duration: Duration(milliseconds: 300),
+                          curve: Curves.easeInOut,
+                        );
                       },
                       icon: Icon(
                         Icons.home_filled,
@@ -74,9 +95,11 @@ class _BottomNavBarState extends State<BtnNavBar> {
                     ),
                     IconButton(
                       onPressed: () {
-                        setState(() {
-                          _currentIndex = 1;
-                        });
+                        _pageController.animateToPage(
+                          2,
+                          duration: Duration(milliseconds: 300),
+                          curve: Curves.easeInOut,
+                        );
                       },
                       icon: Image.asset(
                         'assets/icons/icon _gym weights bold_.png',

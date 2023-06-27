@@ -9,44 +9,56 @@ class homepage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-      appBar: PreferredSize(
-        preferredSize: Size.fromHeight(100),
-        child: AppBar(
-          backgroundColor: Color(0xFF050522),
-          elevation: 0,
-          title: Text(
-            '',
-            style: TextStyle(
-              fontSize: 20,
-              fontWeight: FontWeight.bold,
-              color: Colors.white,
-            ),
-          ),
-          leading: IconButton(
-            icon: Icon(
-              Icons.person,
-              color: Colors.white,
-            ),
-            onPressed: () {
-              Navigator.push(
-                  context, MaterialPageRoute(builder: (context) => profile()));
-            },
+      appBar: AppBar(
+        backgroundColor: Color(0xFF050522),
+        elevation: 0,
+        toolbarHeight:
+            100.0, // Menyesuaikan tinggi app bar dengan tinggi ikon yang digeser
+        // title: Text(
+        //   'Hallo \nFirman Fathoni',
+        //   style: mTitleStyleNameAppbar,
+          
+        // ),
+        leading: Padding(
+          padding: const EdgeInsets.only(left: 10),
+          child: Row(
+            children: [
+              IconButton(
+                icon: Icon(
+                  Icons.person,
+                  color: Colors.white,
+                  size: 45,
+                ),
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => profile()),
+                  );
+                },
+              ),
+              SizedBox(width: 30),
+              Text(
+                "Hallo \nFirman Fathoni",
+              style: mTitleStyleNameAppbar,
+              ),
+            ],
           ),
         ),
       ),
-      body: Padding(
+      body: SingleChildScrollView(
+        child: Padding(
         padding: EdgeInsets.all(20),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
             SizedBox(
-              height: 60,
+              height: 20,
             ),
             Container(
               margin: EdgeInsets.only(left: 10, right: 10),
               padding: EdgeInsets.all(60.0),
               decoration: BoxDecoration(
-                color: Colors.white,
+                color: Color(0xFF050522),
                 borderRadius: BorderRadius.circular(10.0),
               ),
               child: Column(
@@ -56,7 +68,7 @@ class homepage extends StatelessWidget {
                   Text(
                     'GOALS',
                     textAlign: TextAlign.start,
-                    style: mTitleStyle,
+                    style: mTitleStyleGymhouse,
                   )
                 ],
               ),
@@ -68,7 +80,7 @@ class homepage extends StatelessWidget {
               margin: EdgeInsets.only(left: 10, right: 10),
               padding: EdgeInsets.all(60.0),
               decoration: BoxDecoration(
-                color: Colors.white,
+                color: Color(0xFF050522),
                 borderRadius: BorderRadius.circular(10.0),
               ),
               child: Column(
@@ -78,7 +90,7 @@ class homepage extends StatelessWidget {
                   Text(
                     'WORKOUT\nROUTINE',
                     textAlign: TextAlign.start,
-                    style: mTitleStyle,
+                    style: mTitleStyleGymhouse,
                   )
                 ],
               ),
@@ -90,7 +102,7 @@ class homepage extends StatelessWidget {
               margin: EdgeInsets.only(left: 10, right: 10),
               padding: EdgeInsets.all(60.0),
               decoration: BoxDecoration(
-                color: Colors.white,
+                color: Color(0xFF050522),
                 borderRadius: BorderRadius.circular(10.0),
               ),
               child: Column(
@@ -99,7 +111,7 @@ class homepage extends StatelessWidget {
                 children: [
                   Text(
                     'MEMBERSHIP',
-                    style: mTitleStyle,
+                    style: mTitleStyleGymhouse,
                   ),
                   Text(
                     'Nikmati Keuntungan',
@@ -111,6 +123,7 @@ class homepage extends StatelessWidget {
           ],
         ),
       ),
+    ),
     );
   }
 }

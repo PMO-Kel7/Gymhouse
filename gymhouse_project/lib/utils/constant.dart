@@ -90,6 +90,9 @@ var mTitleStyleCreateAccount = GoogleFonts.notoSans(
 var mTitleStyleGymhouse = GoogleFonts.nunitoSans(
     fontWeight: FontWeight.w700, color: mBackgroundColor, fontSize: 30);
 
+var mTitleStyleNameAppbar = GoogleFonts.nunitoSans(
+    fontWeight: FontWeight.w700, color: mBackgroundColor, fontSize: 25);
+
 var mTitleStyleWelcome = GoogleFonts.nunitoSans(
     fontWeight: FontWeight.w700, color: mBackgroundColor, fontSize: 40);
 
