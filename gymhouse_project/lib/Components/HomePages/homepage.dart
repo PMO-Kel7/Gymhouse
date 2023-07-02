@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:gymhouse_project/Components/HomePages/profile.dart';
+import 'package:gymhouse_project/Components/HomePages/profile/profile.dart';
 import 'package:gymhouse_project/utils/constant.dart';
 
 class homepage extends StatelessWidget {
@@ -12,6 +12,7 @@ class homepage extends StatelessWidget {
       appBar: AppBar(
         backgroundColor: Color(0xFF050522),
         elevation: 0,
+
         toolbarHeight:
             100.0, // Menyesuaikan tinggi app bar dengan tinggi ikon yang digeser
         // title: Text(
@@ -27,7 +28,7 @@ class homepage extends StatelessWidget {
                 icon: Icon(
                   Icons.person,
                   color: Colors.white,
-                  size: 45,
+                  size: 40,
                 ),
                 onPressed: () {
                   Navigator.push(
@@ -36,7 +37,7 @@ class homepage extends StatelessWidget {
                   );
                 },
               ),
-              SizedBox(width: 30),
+              SizedBox(width: 20),
               Text(
                 "Hallo \nFirman Fathoni",
               style: mTitleStyleNameAppbar,
@@ -78,7 +79,7 @@ class homepage extends StatelessWidget {
             ),
             Container(
               margin: EdgeInsets.only(left: 10, right: 10),
-              padding: EdgeInsets.all(60.0),
+              padding: EdgeInsets.all(45.0),
               decoration: BoxDecoration(
                 color: Color(0xFF050522),
                 borderRadius: BorderRadius.circular(10.0),

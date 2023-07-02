@@ -51,7 +51,7 @@ final RegExp emailValidatorRegExp =
 RegExp(r"^[a-zA-Z0-9.]+@[a-zA-Z0-9]+\.[a-zA-Z]+");
 const String kUsernameNullError = "Please Enter your username";
 const String kKategoryNullError = "Please Enter your category";
-const String kJudulBahanyNullError = "Judul bahan ajar tidak boleh kosong";
+const String kJudulBahanyNullError = "";
 const String kKeteranganNullError = "Keterangan tidak boleh kosong";
 const String kPersentaseBobotNullError = "Please Enter your weight percentage";
 const String kInvalidUsernameError = "Please Enter Valid username";
@@ -87,11 +87,17 @@ var mTitleStyle = GoogleFonts.notoSans(
 var mTitleStyleCreateAccount = GoogleFonts.notoSans(
     fontWeight: FontWeight.w700, color: mTitleColor, fontSize: 20);
 
+var mTitleStyleCreateAccount3 = GoogleFonts.nunitoSans(
+    fontWeight: FontWeight.w700, color: mTitleColor, fontSize: 20);
+
 var mTitleStyleGymhouse = GoogleFonts.nunitoSans(
     fontWeight: FontWeight.w700, color: mBackgroundColor, fontSize: 30);
 
 var mTitleStyleNameAppbar = GoogleFonts.nunitoSans(
     fontWeight: FontWeight.w700, color: mBackgroundColor, fontSize: 25);
+
+var mTitleStyleNameProfile = GoogleFonts.nunitoSans(
+    fontWeight: FontWeight.w700, color: kPrimaryColor, fontSize: 20);
 
 var mTitleStyleWelcome = GoogleFonts.nunitoSans(
     fontWeight: FontWeight.w700, color: mBackgroundColor, fontSize: 40);
@@ -102,6 +108,11 @@ var mTitleStyleMyprofile = GoogleFonts.nunitoSans(
 var mTitleStyleMembership = GoogleFonts.nunitoSans(
     fontWeight: FontWeight.w700, color: kPrimaryColor, fontSize: 30);
 
+var mTitleStyleMyprofilepage1 = GoogleFonts.nunitoSans(
+    fontWeight: FontWeight.w700, color: kPrimaryColor, fontSize: 25);
+
+var mTitleStyleMyprofilepage3 = GoogleFonts.nunitoSans(
+    fontWeight: FontWeight.w600, color: kPrimaryColor, fontSize: 15);
 
 var mTitleStyleLogin = GoogleFonts.notoSans(
     fontWeight: FontWeight.w700, color: mTitleColor, fontSize: 30);
@@ -126,7 +137,16 @@ var mTitle = GoogleFonts.notoSans(
  
 var mTitle2 = GoogleFonts.notoSans(
     fontWeight: FontWeight.w600, color: mTitleColor, fontSize: 14);
- 
+
+
+
+
+// PROFILE IMAGE //
+const String tProfileImage = "assets/images/Gym-rafiki 1.png";
+const String tProfile = "Firman Fathoni";
+
+
+
 // Style for title Name
 var mTitleStyleNameApps = GoogleFonts.notoSans(
   fontWeight: FontWeight.bold,

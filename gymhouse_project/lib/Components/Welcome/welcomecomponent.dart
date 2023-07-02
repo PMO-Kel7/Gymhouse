@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+// import 'package:gymhouse_project/Screens/Admin/Login/loginadminscreen.dart';
 import 'package:gymhouse_project/Screens/Login/loginscreens.dart';
 import 'package:gymhouse_project/Screens/Register/registerscreens.dart';
 // import 'package:gymhouse_project/Components/default_button_custom_color.dart';
@@ -85,6 +86,31 @@ class _welcomecomponentState extends State<welcomecomponent> {
                 ),
               ),
             ),
+            // SizedBox(
+            //   height: 20,
+            // ),
+            // Container(
+            //   margin: EdgeInsets.only(left: 20, right: 20),
+            //   padding: EdgeInsets.all(17.0),
+            //   decoration: BoxDecoration(
+            //     color: Colors.white,
+            //     borderRadius: BorderRadius.circular(10.0),
+            //   ),
+            //   child: InkWell(
+            //     onTap: () {
+            //       Navigator.pushNamed(context, loginadminscreens.routeName);
+            //     },
+            //     child: Column(
+            //       children: [
+            //         Text(
+            //           'Login as Admin',
+            //           textAlign: TextAlign.center,
+            //           style: mTitleStyleCreateAccount,
+            //         ),
+            //       ],
+            //     ),
+            //   ),
+            // ),
           ],
         ),
       ),
