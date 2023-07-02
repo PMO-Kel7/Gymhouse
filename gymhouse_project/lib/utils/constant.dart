@@ -51,7 +51,7 @@ final RegExp emailValidatorRegExp =
 RegExp(r"^[a-zA-Z0-9.]+@[a-zA-Z0-9]+\.[a-zA-Z]+");
 const String kUsernameNullError = "Please Enter your username";
 const String kKategoryNullError = "Please Enter your category";
-const String kJudulBahanyNullError = "Judul bahan ajar tidak boleh kosong";
+const String kJudulBahanyNullError = "";
 const String kKeteranganNullError = "Keterangan tidak boleh kosong";
 const String kPersentaseBobotNullError = "Please Enter your weight percentage";
 const String kInvalidUsernameError = "Please Enter Valid username";
@@ -108,9 +108,6 @@ var mTitleStyleMyprofile = GoogleFonts.nunitoSans(
 var mTitleStyleMembership = GoogleFonts.nunitoSans(
     fontWeight: FontWeight.w700, color: kPrimaryColor, fontSize: 30);
 
-var mTitleStyleYoga= GoogleFonts.nunitoSans(
-    fontWeight: FontWeight.w700, color: kPrimaryColor, fontSize: 20);
-
 var mTitleStyleMyprofilepage1 = GoogleFonts.nunitoSans(
     fontWeight: FontWeight.w700, color: kPrimaryColor, fontSize: 25);
 
@@ -140,6 +137,10 @@ var mTitle = GoogleFonts.notoSans(
  
 var mTitle2 = GoogleFonts.notoSans(
     fontWeight: FontWeight.w600, color: mTitleColor, fontSize: 14);
+
+var mTitleStyleYoga= GoogleFonts.nunitoSans(
+    fontWeight: FontWeight.w700, color: kPrimaryColor, fontSize: 20);
+
 
 
 

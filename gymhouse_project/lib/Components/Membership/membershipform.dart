@@ -27,8 +27,8 @@ class membership extends StatelessWidget {
             ),
             MenuContainer(
               title: 'Course',
-              color: Color(0xFF398AB9),
-              imagePath: 'assets/images/OBJECTSorang_tapa.png',
+              color: Color.fromARGB(255, 57, 138, 185),
+              imagePath: 'assets/images/course.png',
               onTap: () {
                 Navigator.push(
                   context,
@@ -45,7 +45,7 @@ class membership extends StatelessWidget {
             MenuContainer(
               title: 'Schedule',
               color: Colors.blue,
-              imagePath: 'assets/images/OBJECTSjadwal.png',
+              imagePath: 'assets/images/jadwal.png',
               onTap: () {
                 Navigator.push(
                   context,
@@ -62,7 +62,7 @@ class membership extends StatelessWidget {
             MenuContainer(
               title: 'Trainers',
               color: Colors.green,
-              imagePath: 'assets/images/Speech Bubbles (2)trainer.png',
+              imagePath: 'assets/images/trainer.png',
               onTap: () {
                 Navigator.push(
                   context,
@@ -79,7 +79,7 @@ class membership extends StatelessWidget {
             MenuContainer(
               title: 'Equipment',
               color: Colors.yellow,
-              imagePath: 'assets/images/DESIGNED BY FREEPIKequipment.png',
+              imagePath: 'assets/images/equipment.png',
               onTap: () {
                 Navigator.push(
                   context,
