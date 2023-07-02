@@ -52,6 +52,51 @@ class _SignInformState extends State<SignInform> {
     });
   }
 
+  void resetPassword() {
+    FirebaseAuth.instance
+        .sendPasswordResetEmail(email: _emailController.text)
+        .then((value) {
+      showDialog(
+        context: context,
+        builder: (BuildContext context) {
+          return AlertDialog(
+            title: Text("Password Reset"),
+            content: Text(
+                "Password reset email has been sent to your email address. Please check your inbox."),
+            actions: [
+              TextButton(
+                child: Text("OK"),
+                onPressed: () {
+                  Navigator.of(context).pop();
+                },
+              ),
+            ],
+          );
+        },
+      );
+    }).catchError((error) {
+      print("Error: ${error.toString()}");
+      showDialog(
+        context: context,
+        builder: (BuildContext context) {
+          return AlertDialog(
+            title: Text("Password Reset Failed"),
+            content: Text(
+                "Failed to send password reset email. Please try again later."),
+            actions: [
+              TextButton(
+                child: Text("OK"),
+                onPressed: () {
+                  Navigator.of(context).pop();
+                },
+              ),
+            ],
+          );
+        },
+      );
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Form(
@@ -63,7 +108,7 @@ class _SignInformState extends State<SignInform> {
             keyboardType: TextInputType.emailAddress,
             style: mTitleStyle,
             decoration: InputDecoration(
-              labelText: 'Email address',
+              labelText: 'Email Address',
               hintText: 'info@example.com',
               floatingLabelBehavior: FloatingLabelBehavior.always,
               suffixIcon: CustomSurffixIcon(
@@ -117,7 +162,7 @@ class _SignInformState extends State<SignInform> {
               Text("Remember me"),
               Spacer(),
               GestureDetector(
-                onTap: () {},
+                onTap: resetPassword,
                 child: Text(
                   "Forgot password?",
                   style: TextStyle(decoration: TextDecoration.underline),
