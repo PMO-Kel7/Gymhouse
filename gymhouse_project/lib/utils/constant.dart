@@ -138,6 +138,9 @@ var mTitle = GoogleFonts.notoSans(
 var mTitle2 = GoogleFonts.notoSans(
     fontWeight: FontWeight.w600, color: mTitleColor, fontSize: 14);
 
+var mTitleStyleYoga= GoogleFonts.nunitoSans(
+    fontWeight: FontWeight.w700, color: kPrimaryColor, fontSize: 20);
+
 
 
 
