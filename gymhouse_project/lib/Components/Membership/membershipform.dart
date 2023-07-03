@@ -9,88 +9,95 @@ class membership extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Color.fromARGB(255, 255, 255, 255),
+      appBar: AppBar(
+        backgroundColor: Color(0xFF050522),
+        elevation: 0,
+        toolbarHeight: 100.0,
+        title: Center(
+          child: Text(
+            "Membership Prime",
+            style: mTitleStyleNameAppbar,
+          ),
+        ),
+      ),
       body: Container(
         padding: EdgeInsets.all(40),
-        child: Column(
-          children: [
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.stretch,
-              children: [
-                SizedBox(
-                  height: 50,
-                ),
-                Text("Membership Prime",style: mTitleStyleMembership,),
-                SizedBox(
-                  height: 45,
-                ),
-              ],
-            ),
-            MenuContainer(
-              title: 'Course',
-              color: Color(0xFF398AB9),
-              imagePath: 'assets/images/OBJECTSorang_tapa.png',
-              onTap: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) =>
-                        MembershipPlusForm(), // Navigate to MembershipPlusForm widget
-                  ),
-                );
-              },
-            ),
-            SizedBox(
-              height: 20,
-            ),
-            MenuContainer(
-              title: 'Schedule',
-              color: Colors.blue,
-              imagePath: 'assets/images/OBJECTSjadwal.png',
-              onTap: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) =>
-                        MembershipPlusForm(), // Navigate to MembershipPlusForm widget
-                  ),
-                );
-              },
-            ),
-            SizedBox(
-              height: 20,
-            ),
-            MenuContainer(
-              title: 'Trainers',
-              color: Colors.green,
-              imagePath: 'assets/images/Speech Bubbles (2)trainer.png',
-              onTap: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) =>
-                        MembershipPlusForm(), // Navigate to MembershipPlusForm widget
-                  ),
-                );
-              },
-            ),
-            SizedBox(
-              height: 20,
-            ),
-            MenuContainer(
-              title: 'Equipment',
-              color: Colors.yellow,
-              imagePath: 'assets/images/DESIGNED BY FREEPIKequipment.png',
-              onTap: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) =>
-                        MembershipPlusForm(), // Navigate to MembershipPlusForm widget
-                  ),
-                );
-              },
-            ),
-          ],
+        child: Center(
+          child: Column(
+            children: [
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+              ),
+              SizedBox(
+                height: 45,
+              ),
+              MenuContainer(
+                title: 'Course',
+                color: Color(0xFF398AB9),
+                imagePath: 'assets/images/OBJECTSorang_tapa.png',
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) =>
+                          MembershipPlusForm(), // Navigate to MembershipPlusForm widget
+                    ),
+                  );
+                },
+              ),
+              SizedBox(
+                height: 20,
+              ),
+              MenuContainer(
+                title: 'Schedule',
+                color: Colors.blue,
+                imagePath: 'assets/images/OBJECTSjadwal.png',
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) =>
+                          MembershipPlusForm(), // Navigate to MembershipPlusForm widget
+                    ),
+                  );
+                },
+              ),
+              SizedBox(
+                height: 20,
+              ),
+              MenuContainer(
+                title: 'Trainers',
+                color: Colors.green,
+                imagePath: 'assets/images/Speech Bubbles (2)trainer.png',
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) =>
+                          MembershipPlusForm(), // Navigate to MembershipPlusForm widget
+                    ),
+                  );
+                },
+              ),
+              SizedBox(
+                height: 20,
+              ),
+              MenuContainer(
+                title: 'Equipment',
+                color: Colors.yellow,
+                imagePath: 'assets/images/DESIGNED BY FREEPIKequipment.png',
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) =>
+                          MembershipPlusForm(), // Navigate to MembershipPlusForm widget
+                    ),
+                  );
+                },
+              ),
+            ],
+          ),
         ),
       ),
     );

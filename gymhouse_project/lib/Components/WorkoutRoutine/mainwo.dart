@@ -1,4 +1,3 @@
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:gymhouse_project/Components/WorkoutRoutine/goals.dart';
 import 'package:gymhouse_project/Components/WorkoutRoutine/planks.dart';
@@ -11,22 +10,21 @@ class mainworkout extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Color.fromARGB(255, 255, 255, 255),
+      appBar: AppBar(
+        backgroundColor: Color(0xFF050522),
+        elevation: 0,
+        toolbarHeight: 100.0,
+        title: Center(
+          child: Text(
+            "Workout Routine",
+            style: mTitleStyleNameAppbar,
+          ),
+        ),
+      ),
       body: Container(
         padding: EdgeInsets.all(40),
         child: Column(
           children: [
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.stretch,
-              children: [
-                SizedBox(
-                  height: 30,
-                ),
-                Text("Workout Routine", style: mTitleStyleMembership),
-                SizedBox(
-                  height: 45,
-                ),
-              ],
-            ),
             MenuContainer(
               title: 'Goals',
               color: Colors.red,
