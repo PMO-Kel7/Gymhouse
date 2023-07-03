@@ -119,37 +119,39 @@ class MenuContainer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      height: 100.0,
-      decoration: BoxDecoration(
-        color: color,
-        borderRadius: BorderRadius.circular(8.0),
-      ),
-      child: Row(
-        children: [
-          Center(
-            child: GestureDetector(
-              onTap: onTap, // Use the onTap callback
-              child: Expanded(
-                child: Image.asset(
-                  imagePath, // Use the imagePath parameter
-                  fit: BoxFit.cover,
+    return InkWell(
+        onTap: onTap,
+        child: Container(
+          height: 100.0,
+          decoration: BoxDecoration(
+            color: color,
+            borderRadius: BorderRadius.circular(8.0),
+          ),
+          child: Row(
+            children: [
+              Center(
+                child: GestureDetector(
+                  onTap: onTap, // Use the onTap callback
+                  child: Expanded(
+                    child: Image.asset(
+                      imagePath, // Use the imagePath parameter
+                      fit: BoxFit.cover,
+                    ),
+                  ),
                 ),
               ),
-            ),
+              SizedBox(
+                width: 10,
+              ),
+              Text(
+                title,
+                style: TextStyle(
+                    fontSize: 24.0,
+                    color: Colors.white,
+                    fontWeight: FontWeight.bold),
+              )
+            ],
           ),
-          SizedBox(
-            width: 10,
-          ),
-          Text(
-            title,
-            style: TextStyle(
-                fontSize: 24.0,
-                color: Colors.white,
-                fontWeight: FontWeight.bold),
-          )
-        ],
-      ),
-    );
+        ));
   }
 }
