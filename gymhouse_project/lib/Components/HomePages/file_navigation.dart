@@ -10,7 +10,7 @@ class BtnNavBar extends StatefulWidget {
 }
 
 class _BottomNavBarState extends State<BtnNavBar> {
-  int _currentIndex = 0;
+  int _currentIndex = 1;
   late PageController _pageController;
 
   List<Widget> _pages = [
