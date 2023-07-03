@@ -14,38 +14,23 @@ class homepage extends StatelessWidget {
       appBar: AppBar(
         backgroundColor: Color(0xFF050522),
         elevation: 0,
-
-        toolbarHeight:
-            100.0, // Menyesuaikan tinggi app bar dengan tinggi ikon yang digeser
-        // title: Text(
-        //   'Hallo \nFirman Fathoni',
-        //   style: mTitleStyleNameAppbar,
-
-        // ),
-        leading: Padding(
-          padding: const EdgeInsets.only(left: 10),
-          child: Row(
-            children: [
-              IconButton(
-                icon: Icon(
-                  Icons.person,
-                  color: Colors.white,
-                  size: 40,
-                ),
-                onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => profile()),
-                  );
-                },
-              ),
-              SizedBox(width: 20),
-              Text(
-                "Hallo \nFirman Fathoni",
-                style: mTitleStyleNameAppbar,
-              ),
-            ],
+        toolbarHeight: 100.0,
+        title: Text(
+          "Homepage",
+          style: mTitleStyleNameAppbar,
+        ),
+        leading: IconButton(
+          icon: Icon(
+            Icons.person,
+            color: Colors.white,
+            size: 40,
           ),
+          onPressed: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => profile()),
+            );
+          },
         ),
       ),
       body: SingleChildScrollView(

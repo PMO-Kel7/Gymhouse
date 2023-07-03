@@ -74,7 +74,7 @@ class _BottomNavBarState extends State<BtnNavBar> {
                         );
                       },
                       icon: Icon(
-                        Icons.calendar_month_sharp,
+                        Icons.card_membership,
                         size: 30,
                         color: Colors.white,
                       ),
