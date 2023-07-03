@@ -1,5 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:gymhouse_project/Components/WorkoutRoutine/goals.dart';
+import 'package:gymhouse_project/Components/WorkoutRoutine/planks.dart';
 import 'package:gymhouse_project/utils/constant.dart';
 
 class mainworkout extends StatelessWidget {
@@ -26,37 +28,41 @@ class mainworkout extends StatelessWidget {
               ],
             ),
             MenuContainer(
-              
-              title: 'Container 1',
+              title: 'Goals',
               color: Colors.red,
+              route: goals(),
             ),
             SizedBox(
               height: 20,
             ),
-            MenuContainer2(
+            MenuContainer(
               title: 'Container 2',
               color: Colors.blue,
+              route: PlanksPage(),
             ),
             SizedBox(
               height: 20,
             ),
-            MenuContainer2(
+            MenuContainer(
               title: 'Container 3',
               color: Colors.green,
+              route: PlanksPage(),
             ),
             SizedBox(
               height: 20,
             ),
-            MenuContainer2(
+            MenuContainer(
               title: 'Container 4',
               color: Colors.yellow,
+              route: PlanksPage(),
             ),
             SizedBox(
               height: 20,
             ),
-            MenuContainer2(
-              title: 'Container 5',
+            MenuContainer(
+              title: 'Plank',
               color: Colors.black,
+              route: PlanksPage(),
             ),
           ],
         ),
@@ -68,28 +74,38 @@ class mainworkout extends StatelessWidget {
 class MenuContainer extends StatelessWidget {
   final String title;
   final Color color;
+  final Widget route; // Tambahkan parameter route
 
   const MenuContainer({
     required this.title,
     required this.color,
+    required this.route, // Tambahkan parameter route
   });
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      height: 110.0,
-      decoration: BoxDecoration(
-        color: color,
-        borderRadius: BorderRadius.circular(8.0),
-      ),
-      child: Center(
-        child: 
-        Text(
-          title,
-          style: TextStyle(
-            fontSize: 24.0,
-            color: Colors.white,
-            fontWeight: FontWeight.bold,
+    return GestureDetector(
+      onTap: () {
+        // Navigasi ke halaman yang ditentukan saat kontainer ditekan
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => route),
+        );
+      },
+      child: Container(
+        height: 110.0,
+        decoration: BoxDecoration(
+          color: color,
+          borderRadius: BorderRadius.circular(8.0),
+        ),
+        child: Center(
+          child: Text(
+            title,
+            style: TextStyle(
+              fontSize: 24.0,
+              color: Colors.white,
+              fontWeight: FontWeight.bold,
+            ),
           ),
         ),
       ),
@@ -118,8 +134,7 @@ class MenuContainer2 extends StatelessWidget {
           borderRadius: BorderRadius.circular(8.0),
         ),
         child: Center(
-          child: 
-          Text(
+          child: Text(
             title,
             style: TextStyle(
               fontSize: 24.0,
@@ -132,5 +147,3 @@ class MenuContainer2 extends StatelessWidget {
     );
   }
 }
-
-

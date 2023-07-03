@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:gymhouse_project/Components/HomePages/profile/profile.dart';
 import 'package:gymhouse_project/utils/constant.dart';
 
+import '../BottomSheet/bottomsheet.dart';
+
 class homepage extends StatelessWidget {
   const homepage({Key? key}) : super(key: key);
 
@@ -18,7 +20,7 @@ class homepage extends StatelessWidget {
         // title: Text(
         //   'Hallo \nFirman Fathoni',
         //   style: mTitleStyleNameAppbar,
-          
+
         // ),
         leading: Padding(
           padding: const EdgeInsets.only(left: 10),
@@ -40,7 +42,7 @@ class homepage extends StatelessWidget {
               SizedBox(width: 20),
               Text(
                 "Hallo \nFirman Fathoni",
-              style: mTitleStyleNameAppbar,
+                style: mTitleStyleNameAppbar,
               ),
             ],
           ),
@@ -48,83 +50,93 @@ class homepage extends StatelessWidget {
       ),
       body: SingleChildScrollView(
         child: Padding(
-        padding: EdgeInsets.all(20),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: [
-            SizedBox(
-              height: 20,
-            ),
-            Container(
-              margin: EdgeInsets.only(left: 10, right: 10),
-              padding: EdgeInsets.all(60.0),
-              decoration: BoxDecoration(
-                color: Color(0xFF050522),
-                borderRadius: BorderRadius.circular(10.0),
+          padding: EdgeInsets.all(20),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              SizedBox(
+                height: 20,
               ),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.start,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    'GOALS',
-                    textAlign: TextAlign.start,
-                    style: mTitleStyleGymhouse,
-                  )
-                ],
+              Container(
+                margin: EdgeInsets.only(left: 10, right: 10),
+                padding: EdgeInsets.all(60.0),
+                decoration: BoxDecoration(
+                  color: Color(0xFF050522),
+                  borderRadius: BorderRadius.circular(10.0),
+                ),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      'GOALS',
+                      textAlign: TextAlign.start,
+                      style: mTitleStyleGymhouse,
+                    )
+                  ],
+                ),
               ),
-            ),
-            SizedBox(
-              height: 20,
-            ),
-            Container(
-              margin: EdgeInsets.only(left: 10, right: 10),
-              padding: EdgeInsets.all(45.0),
-              decoration: BoxDecoration(
-                color: Color(0xFF050522),
-                borderRadius: BorderRadius.circular(10.0),
+              SizedBox(
+                height: 20,
               ),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.start,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    'WORKOUT\nROUTINE',
-                    textAlign: TextAlign.start,
-                    style: mTitleStyleGymhouse,
-                  )
-                ],
+              Container(
+                margin: EdgeInsets.only(left: 10, right: 10),
+                padding: EdgeInsets.all(45.0),
+                decoration: BoxDecoration(
+                  color: Color(0xFF050522),
+                  borderRadius: BorderRadius.circular(10.0),
+                ),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      'WORKOUT\nROUTINE',
+                      textAlign: TextAlign.start,
+                      style: mTitleStyleGymhouse,
+                    )
+                  ],
+                ),
               ),
-            ),
-            SizedBox(
-              height: 20,
-            ),
-            Container(
-              margin: EdgeInsets.only(left: 10, right: 10),
-              padding: EdgeInsets.all(60.0),
-              decoration: BoxDecoration(
-                color: Color(0xFF050522),
-                borderRadius: BorderRadius.circular(10.0),
+              SizedBox(
+                height: 20,
               ),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.start,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    'MEMBERSHIP',
-                    style: mTitleStyleGymhouse,
-                  ),
-                  Text(
-                    'Nikmati Keuntungan',
-                    style: mTitle2,
-                  )
-                ],
-              ),
-            )
-          ],
+              InkWell(
+                  onTap: () {
+                    showModalBottomSheet(
+                        //enableDrag: false,
+                        //isDismissible: false,
+                        isScrollControlled: true, //supaya bisa di scroll
+                        backgroundColor: Colors.transparent,
+                        context: context,
+                        builder: (context) => buildSheet(context));
+                  },
+                  child: Container(
+                    margin: EdgeInsets.only(left: 10, right: 10),
+                    padding: EdgeInsets.all(60.0),
+                    decoration: BoxDecoration(
+                      color: Color(0xFF050522),
+                      borderRadius: BorderRadius.circular(10.0),
+                    ),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          'MEMBERSHIP',
+                          style: mTitleStyleGymhouse,
+                        ),
+                        Text(
+                          'Nikmati Keuntungan',
+                          style: mTitle2,
+                        )
+                      ],
+                    ),
+                  ))
+            ],
+          ),
         ),
       ),
-    ),
     );
   }
 }
