@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:gymhouse_project/Components/HomePages/profile/profile.dart';
 import 'package:gymhouse_project/utils/constant.dart';
 
-import '../BottomSheet/bottomsheet.dart';
+import '../Subscription/subscription.dart';
 
 class homepage extends StatelessWidget {
   const homepage({Key? key}) : super(key: key);
