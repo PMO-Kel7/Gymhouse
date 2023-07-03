@@ -1,7 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:gymhouse_project/Components/HomePages/file_navigation.dart';
-import 'package:gymhouse_project/Screens/Welcome/welcomescreen.dart';
+import 'package:gymhouse_project/Screens/Splash/splashscreens.dart';
 // import 'Components/Sambutan/sambutancomponent.dart';
 import 'package:gymhouse_project/routes.dart';
 import 'package:gymhouse_project/theme.dart';
@@ -29,7 +29,7 @@ void main() async {
           return MaterialApp(
             title: "Gymhouse",
             theme: theme(),
-            initialRoute: welcomescreens.routeName,
+            initialRoute: SplashScreens.routeName,
             routes: routes,
             debugShowCheckedModeBanner: false,
           );

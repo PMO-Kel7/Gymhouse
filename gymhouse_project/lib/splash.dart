@@ -36,7 +36,7 @@ class _SplashScreenState extends State<SplashScreen> {
   Widget content() {
     return Center(
       child: Container(
-        child: Lottie.network("https://assets1.lottiefiles.com/packages/lf20_AMBEWz.json"),
+        child: Lottie.asset("assets/splash.json"),
       ),
     );
   }
