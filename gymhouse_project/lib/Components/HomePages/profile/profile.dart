@@ -1,6 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:gymhouse_project/Components/HomePages/profile/update_profilescreen.dart';
 import 'package:gymhouse_project/Screens/Login/loginscreens.dart';
 import 'package:gymhouse_project/utils/constant.dart';
 
@@ -80,7 +81,13 @@ class profile extends StatelessWidget {
                         SizedBox(
                           width: 250,
                           child: ElevatedButton(
-                            onPressed: () {},
+                            onPressed: () {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) =>
+                                          UpdateProfileScreen()));
+                            },
                             style: ElevatedButton.styleFrom(
                               primary: Color(0xFF050522),
                             ),
@@ -94,7 +101,9 @@ class profile extends StatelessWidget {
                         ),
                         const SizedBox(height: 30),
                         const Divider(),
-                        const SizedBox(height: 150,),
+                        const SizedBox(
+                          height: 150,
+                        ),
                         SizedBox(
                           width: 250,
                           child: ElevatedButton(
@@ -110,11 +119,15 @@ class profile extends StatelessWidget {
                             ),
                           ),
                         ),
-                        const SizedBox(height: 10,),
+                        const SizedBox(
+                          height: 10,
+                        ),
                         SizedBox(
                           width: 250,
                           child: ElevatedButton(
-                            onPressed: () {_signOut(context);},
+                            onPressed: () {
+                              _signOut(context);
+                            },
                             style: ElevatedButton.styleFrom(
                               primary: Color(0xFF050522),
                             ),
