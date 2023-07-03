@@ -50,7 +50,7 @@ class membership extends StatelessWidget {
               ),
               MenuContainer(
                 title: 'Schedule',
-                color: Colors.blue,
+                color: Color(0xFF398AB9),
                 imagePath: 'assets/images/OBJECTSjadwal.png',
                 onTap: () {
                   Navigator.push(
@@ -67,7 +67,7 @@ class membership extends StatelessWidget {
               ),
               MenuContainer(
                 title: 'Trainers',
-                color: Colors.green,
+                color: Color(0xFF398AB9),
                 imagePath: 'assets/images/Speech Bubbles (2)trainer.png',
                 onTap: () {
                   Navigator.push(
@@ -84,7 +84,7 @@ class membership extends StatelessWidget {
               ),
               MenuContainer(
                 title: 'Equipment',
-                color: Colors.yellow,
+                color: Color(0xFF398AB9),
                 imagePath: 'assets/images/DESIGNED BY FREEPIKequipment.png',
                 onTap: () {
                   Navigator.push(
@@ -130,14 +130,9 @@ class MenuContainer extends StatelessWidget {
           child: Row(
             children: [
               Center(
-                child: GestureDetector(
-                  onTap: onTap, // Use the onTap callback
-                  child: Expanded(
-                    child: Image.asset(
-                      imagePath, // Use the imagePath parameter
-                      fit: BoxFit.cover,
-                    ),
-                  ),
+                child: Image.asset(
+                  imagePath, // Use the imagePath parameter
+                  fit: BoxFit.cover,
                 ),
               ),
               SizedBox(
