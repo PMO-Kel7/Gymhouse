@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:gymhouse_project/Components/WorkoutRoutine/goals.dart';
 import 'package:gymhouse_project/Components/WorkoutRoutine/planks.dart';
+import 'package:gymhouse_project/Components/WorkoutRoutine/pushup.dart';
 import 'package:gymhouse_project/utils/constant.dart';
 
 class mainworkout extends StatelessWidget {
@@ -34,9 +35,9 @@ class mainworkout extends StatelessWidget {
               height: 20,
             ),
             MenuContainer(
-              title: 'Container 2',
+              title: 'PushUp',
               color: Colors.blue,
-              route: PlanksPage(),
+              route: PushupPage(),
             ),
             SizedBox(
               height: 20,

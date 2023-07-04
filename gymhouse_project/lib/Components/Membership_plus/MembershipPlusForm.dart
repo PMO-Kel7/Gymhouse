@@ -35,13 +35,13 @@ class _MembershipPlusFormState extends State<MembershipPlusForm> {
     flickManager3 = FlickManager(
       videoPlayerController: VideoPlayerController.networkUrl(
         Uri.parse(
-            'https://861520855.tapecontent.net/radosgw/XorKarKzpQtD6yg/stDGwLuQB3TPGAISf2t3jQL_okfsKurLjvC234DdLlbxHQZq5FosttPZnlNenmiS6PxdKf2KvK5QWfa6naZ_xPOqEHWiyIPc260YKd5qxMiqKwzmdRMjbn5f5ZqobuPSLs4lmmybbS7XWp-lXXTrIZmnmJHs5MwZgib6qyOvA-G0Nz5i2pPUK65TFW7ldg6COZMP9OPWhpfP6PG44wU95_HJrtfSTJ3zRQtgdLqSX5wh3Llb_IINMIWQJ8bLhG7PM9SiyTnm62dlpknqCtvKqWz8dibZ_GM8s-ZcnpCdDMvieY1wu7p-tGfupWbpWxnonDTo6d1IIG4ZSsrsfzVST29iJaofNsGCQapugQ/10_Mins_Easy_Weight_Loss_Zumba_Dance_Workout_For_Beginn_F4BJst5d.mp4?stream=1'),
+            'https://vault7.my.id/2:/zumba.mp4'),
       ),
     );
     flickManager4 = FlickManager(
       videoPlayerController: VideoPlayerController.networkUrl(
         Uri.parse(
-            'https://908357361.tapecontent.net/radosgw/VoZPdrMOpWHKJ9x/4JIWr-lP0fJsRrqmpQjrP-ucpC492bptvtM4OdWp7A863v-Dryhx6S1F-DZm29cndIQvs_2b3y6DpM-GaX1YBpG36fW7KWnYjt4DqPpNgVYQzL2lL2_pWTBQYJ0do5OdODCjQlInDy1DCBUXiRXbFZqgNp43DKHvNoUNMfE8sdZ4rJiw7rZaQNNAqMe8P--uf20xBcJKdO2qSK-4rE4zvaS43dp774DKJ8iGr5oK4xfPABr_S9854IWtCVSRFvFQi6bpsa9kcPZL8FO8hPsIwk6BYnF40eyotZ8n7C4dDZ3fUr6axlx4LP9d2aI0qTCMibpc9posJ9w1fjI5SSzTgQACANz12GBTiwbgdQ/15_Min_Intense_HIIT_Workout_For_Fat_Burn_Cardio_No_Equi_J212vz33.mp4?stream=1'),
+            'https://vault7.my.id/2:/hiit_workout.mp4'),
       ),
     );
   }
