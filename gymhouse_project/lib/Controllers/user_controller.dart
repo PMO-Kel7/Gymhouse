@@ -29,7 +29,7 @@ class userController {
     return documentIds;
   }
 
-  Future<void> addData(String userId, String id, String nama, String email) async {
+  Future<void> addData( String userId, String id, String nama, String email) async {
     try {
       await userCollection.doc(userId).set({
         'id_users': id,

@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 
-void main() {
-  runApp(TrainerListApp());
-}
+
 
 class TrainerListApp extends StatelessWidget {
   @override

@@ -141,6 +141,11 @@ var mTitle2 = GoogleFonts.notoSans(
 var mTitleStyleYoga= GoogleFonts.nunitoSans(
     fontWeight: FontWeight.w700, color: kPrimaryColor, fontSize: 20);
 
+var mEditProfile = GoogleFonts.nunitoSans(
+    fontWeight: FontWeight.w700, color: mBackgroundColor, fontSize: 17);
+
+var mEditDetailDataAnda = GoogleFonts.nunitoSans(
+    fontWeight: FontWeight.w700, color: mBackgroundColor, fontSize: 18);
 
 
 

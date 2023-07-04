@@ -1,3 +1,5 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:gymhouse_project/Components/HomePages/homepage.dart';
 // import 'package:gymhouse_project/Components/HomePages/profile.dart';
@@ -12,19 +14,22 @@ class BtnNavBar extends StatefulWidget {
 class _BottomNavBarState extends State<BtnNavBar> {
   int _currentIndex = 1;
   late PageController _pageController;
-
+  
+ @override
+  void initState() {
+    _pageController = PageController(initialPage: _currentIndex);
+    super.initState();
+  }
+  
   List<Widget> _pages = [
+   
     // profile(),
     membership(),
     homepage(),
     mainworkout(),
   ];
 
-  @override
-  void initState() {
-    _pageController = PageController(initialPage: _currentIndex);
-    super.initState();
-  }
+ 
 
   @override
   void dispose() {

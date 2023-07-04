@@ -15,5 +15,5 @@ final Map<String, WidgetBuilder> routes = {
   registerscreens.routeName:(context) => registerscreens(),
   onboarding_screens.routeName:(context) => onboardingscreen(),
   SplashScreens.routeName:(context) => SplashScreens(),
-  // loginadminscreens.routeName:((context) => loginadminscreens()
+  // loginadminscreens.routeName:(context) => loginadminscreens()
 };

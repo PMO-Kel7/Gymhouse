@@ -1,5 +1,7 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:gymhouse_project/Components/Admin/Homepage/btnnavbaradmin.dart';
 import 'package:gymhouse_project/Components/HomePages/file_navigation.dart';
 import 'package:gymhouse_project/Components/custom_surfix_icon.dart';
 import 'package:gymhouse_project/Components/default_button_custom_color.dart';
@@ -10,13 +12,23 @@ import 'package:gymhouse_project/utils/constant.dart';
 class SignInform extends StatefulWidget {
   @override
   _SignInformState createState() => _SignInformState();
+  
 }
 
 class _SignInformState extends State<SignInform> {
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+  }
+
   final _formKey = GlobalKey<FormState>();
   TextEditingController _emailController = TextEditingController();
   TextEditingController _passwordController = TextEditingController();
   bool _rememberMe = false;
+   String role = "";
+  bool rolekah = false;
 
   void _loginUser() {
     FirebaseAuth.instance
@@ -24,12 +36,53 @@ class _SignInformState extends State<SignInform> {
       email: _emailController.text,
       password: _passwordController.text,
     )
-        .then((value) {
-      print("Login Successful");
-      Navigator.push(
-        context,
-        MaterialPageRoute(builder: (context) => BtnNavBar()),
-      );
+        .then((value) async {
+
+          if(value != null) {
+                final FirebaseFirestore _firestore = FirebaseFirestore.instance;
+
+            final FirebaseAuth _firebaseAuth = FirebaseAuth.instance;
+
+            User? currentUser = _firebaseAuth.currentUser;
+            String uid = currentUser!.uid;
+            print('data uid $uid');
+
+            if (currentUser != null) {
+      String uid = currentUser.uid;
+
+      DocumentSnapshot snapshot =
+          await _firestore.collection('users').doc(uid).get();
+
+      if (snapshot.exists) {
+        Map<String, dynamic>? data = snapshot.data() as Map<String, dynamic>;
+
+        if (data != null) {
+          String roles = data['role'];
+          setState(() {
+            role = roles;
+          });
+        }
+      }
+    }
+  try {
+    if(role == 'admin'){
+            print("Login Successful");
+
+            Navigator.push(context, MaterialPageRoute(builder: (context) => BtnNavBarAdmin()));
+          
+          }else{
+            print("Login Successful");
+
+            Navigator.push(context, MaterialPageRoute(builder: (context) => BtnNavBar()));
+          }
+  } catch (e) {
+    print('Error $e');
+  }
+      
+    
+          }
+     
+          
     }).catchError((error) {
       print("Error: ${error.toString()}");
       showDialog(
@@ -96,6 +149,8 @@ class _SignInformState extends State<SignInform> {
       );
     });
   }
+
+
 
   @override
   Widget build(BuildContext context) {
@@ -177,6 +232,7 @@ class _SignInformState extends State<SignInform> {
               if (_formKey.currentState!.validate()) {
                 _loginUser();
               }
+              print('ini data role button $role');
             },
           ),
           SizedBox(height: getProportionateScreenHeight(20)),

@@ -1,3 +1,6 @@
+import 'dart:io';
+
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -5,10 +8,17 @@ import 'package:gymhouse_project/Components/HomePages/profile/update_profilescre
 import 'package:gymhouse_project/Screens/Login/loginscreens.dart';
 import 'package:gymhouse_project/utils/constant.dart';
 
-class profile extends StatelessWidget {
+class profile extends StatefulWidget {
   const profile({Key? key});
 
+  @override
+  State<profile> createState() => _profileState();
+}
+
+class _profileState extends State<profile> {
+
   void _signOut(BuildContext context) {
+
     FirebaseAuth.instance.signOut().then((value) {
       print("Signed Out");
       Navigator.pushAndRemoveUntil(
@@ -19,6 +29,48 @@ class profile extends StatelessWidget {
     }).catchError((error) {
       print("Error ${error.toString()}");
     });
+  }
+
+  String nama = "";
+  String email = "";
+  String image =
+      "/data/user/0/com.gymhouse.project/cache/51d86ab7-3f00-4385-ad98-24b1ea781044/103238856_p0.jpg";
+
+  Future<void> getUser() async {
+    final FirebaseFirestore _firestore = FirebaseFirestore.instance;
+    final FirebaseAuth _firebaseAuth = FirebaseAuth.instance;
+
+    User? currentUser = _firebaseAuth.currentUser;
+
+    if (currentUser != null) {
+      String uid = currentUser.uid;
+
+      DocumentSnapshot snapshot =
+          await _firestore.collection('users').doc(uid).get();
+
+      if (snapshot.exists) {
+        Map<String, dynamic>? data = snapshot.data() as Map<String, dynamic>;
+
+        if (data != null) {
+          String namas = data['nama'];
+          String emails = data['email'] ?? '';
+          String images = data['image'] ??
+              '/data/user/0/com.gymhouse.project/cache/51d86ab7-3f00-4385-ad98-24b1ea781044/103238856_p0.jpg';
+
+          setState(() {
+            nama = namas;
+            email = emails;
+            image = images;
+          });
+        }
+      }
+    }
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    getUser();
   }
 
   @override
@@ -54,25 +106,46 @@ class profile extends StatelessWidget {
                           height: 60,
                         ),
                         SizedBox(
-                          width: 120,
-                          height: 120,
+                          width: 130,
+                          height: 130,
                           child: ClipRRect(
-                            borderRadius: BorderRadius.circular(100),
-                            child: SvgPicture.asset(
-                              "assets/images/Gym-amico 1.svg",
-                              height: 200,
+                            borderRadius: BorderRadius.circular(
+                                60), // Mengatur radius setengah dari lebar/tinggi untuk membuat bundar
+                            child: Image.file(
+                              File(image),
+                              fit: BoxFit
+                                  .cover, // Mengatur bagaimana gambar akan ditampilkan dalam kotak
                             ),
                           ),
                         ),
+
+                        // SizedBox(
+                        //   width: 150.0,
+                        //   child: Card(
+                        //     child: Column(
+                        //       children: [
+                        //         Image.file(File(image)),
+                        //         SizedBox(height: 8.0),
+                        //         // Text(
+                        //         //   name,
+                        //         //   style: TextStyle(
+                        //         //     fontSize: 16.0,
+                        //         //     fontWeight: FontWeight.bold,
+                        //         //   ),
+                        //         // ),
+                        //       ],
+                        //     ),
+                        //   ),
+                        // ),
                         const SizedBox(
                           height: 10,
                         ),
                         Text(
-                          "Firman Fathoni",
+                          nama,
                           style: mTitleStyleMyprofilepage1,
                         ),
                         Text(
-                          "yukhapoi115@gmail.com",
+                          email,
                           style: mTitleStyleMyprofilepage3,
                         ),
                         const SizedBox(
@@ -91,12 +164,7 @@ class profile extends StatelessWidget {
                             style: ElevatedButton.styleFrom(
                               primary: Color(0xFF050522),
                             ),
-                            child: Text(
-                              'Edit Profile',
-                              style: TextStyle(
-                                fontSize: 18,
-                              ),
-                            ),
+                            child: Text('Edit Profile', style: mEditProfile),
                           ),
                         ),
                         const SizedBox(height: 30),
@@ -111,12 +179,7 @@ class profile extends StatelessWidget {
                             style: ElevatedButton.styleFrom(
                               primary: Color(0xFF050522),
                             ),
-                            child: Text(
-                              'News',
-                              style: TextStyle(
-                                fontSize: 18,
-                              ),
-                            ),
+                            child: Text('News', style: mEditProfile),
                           ),
                         ),
                         const SizedBox(
@@ -131,12 +194,7 @@ class profile extends StatelessWidget {
                             style: ElevatedButton.styleFrom(
                               primary: Color(0xFF050522),
                             ),
-                            child: Text(
-                              'Logout',
-                              style: TextStyle(
-                                fontSize: 18,
-                              ),
-                            ),
+                            child: Text('Logout', style: mEditProfile),
                           ),
                         ),
 

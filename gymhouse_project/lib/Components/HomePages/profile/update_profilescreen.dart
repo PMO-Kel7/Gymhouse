@@ -4,6 +4,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:gymhouse_project/Controllers/user_controller.dart';
+import 'package:gymhouse_project/utils/constant.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 
@@ -12,7 +13,6 @@ class UpdateProfileScreen extends StatefulWidget {
 
   @override
   State<UpdateProfileScreen> createState() => _UpdateProfileScreenState();
-  
 }
 
 class _UpdateProfileScreenState extends State<UpdateProfileScreen> {
@@ -21,7 +21,8 @@ class _UpdateProfileScreenState extends State<UpdateProfileScreen> {
   TextEditingController email = TextEditingController();
 
   final FirebaseAuth _firebaseAuth = FirebaseAuth.instance;
-  final userController _userController = userController();  final ImagePicker _imagePicker = ImagePicker();
+  final userController _userController = userController();
+  final ImagePicker _imagePicker = ImagePicker();
 
   File? _imageFile;
 
@@ -54,35 +55,37 @@ class _UpdateProfileScreenState extends State<UpdateProfileScreen> {
 
     if (currentUser != null) {
       print('data user $currentUser');
-      String idUsers = currentUser.uid ?? '';
+      String uid = currentUser.uid;
 
-      final QuerySnapshot querySnapshot = await _firestore
-          .collection('users')
-          .where('id_users', isEqualTo: idUsers)
-          .get();
+      DocumentSnapshot snapshot =
+          await _firestore.collection('users').doc(uid).get();
 
-      List<QueryDocumentSnapshot> documents = querySnapshot.docs;
+      if (snapshot.exists) {
+        Map<String, dynamic>? data = snapshot.data() as Map<String, dynamic>;
 
-      for (QueryDocumentSnapshot document in documents) {
-        String ids = document['id_users'];
-        String emails = document['email'];
-        String namas = document['nama'];
+        if (data != null) {
+          print('ini data ${data['email']}');
+          String idUsers = uid;
+          String emails = data['email'] ?? '';
+          String namas = data['nama'] ?? '';
 
-        setState(() {
-          id.text = ids;
-          email.text = emails;
-          nama.text = namas;
-        });
+          setState(() {
+            id.text = idUsers;
+            email.text = emails;
+            nama.text = namas;
+          });
+        }
       }
     }
   }
 
- @override
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Color.fromARGB(255, 149, 94, 245),
-        title: Text("Detail Data Anda"),
+        backgroundColor: kPrimaryColor,
+        title: Text("Detail Data Anda", style: mEditProfile,),
+        
       ),
       body: SingleChildScrollView(
         child: Padding(
@@ -127,7 +130,9 @@ class _UpdateProfileScreenState extends State<UpdateProfileScreen> {
                   ),
                 ),
               ),
-              SizedBox(height: 40,),
+              SizedBox(
+                height: 40,
+              ),
               TextFormField(
                 controller: nama,
                 decoration: InputDecoration(
@@ -136,7 +141,9 @@ class _UpdateProfileScreenState extends State<UpdateProfileScreen> {
                   fillColor: Colors.white,
                 ),
               ),
-              SizedBox(height: 20,),
+              SizedBox(
+                height: 20,
+              ),
               TextFormField(
                 controller: email,
                 decoration: InputDecoration(
@@ -154,6 +161,8 @@ class _UpdateProfileScreenState extends State<UpdateProfileScreen> {
                   String newNama = nama.text;
                   String newEmail = email.text;
                   String newImage = imagePath;
+                  print('ini id $userId');
+                  print('ini image $newImage');
 
                   _userController.editData(
                       userId, newId, newNama, newEmail, newImage);
@@ -177,6 +186,16 @@ class _UpdateProfileScreenState extends State<UpdateProfileScreen> {
                     },
                   );
                 },
+                style: ElevatedButton.styleFrom(
+                  primary: Color(0xFF050522), // Mengatur warna latar belakang tombol
+                  textStyle: mEditProfile,
+                  padding: EdgeInsets.symmetric(
+                      horizontal: 30, vertical: 14), // Mengatur padding tombol
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(
+                        8), // Mengatur border radius tombol
+                  ),
+                ),
                 child: Text('Simpan'),
               ),
             ],
