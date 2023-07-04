@@ -16,9 +16,7 @@ class profile extends StatefulWidget {
 }
 
 class _profileState extends State<profile> {
-
   void _signOut(BuildContext context) {
-
     FirebaseAuth.instance.signOut().then((value) {
       print("Signed Out");
       Navigator.pushAndRemoveUntil(
@@ -34,7 +32,7 @@ class _profileState extends State<profile> {
   String nama = "";
   String email = "";
   String image =
-      "/data/user/0/com.gymhouse.project/cache/51d86ab7-3f00-4385-ad98-24b1ea781044/103238856_p0.jpg";
+      "/data/user/0/com.gymhouse.project/cache/1de514af-8fd2-4190-9cb0-4b93ad894c8b/00109-2251713052-(extremely detailed CG unity 8k wallpaper,masterpiece, best quality, ultra-detailed),(best illumination, best shadow, an extreme.jpg";
 
   Future<void> getUser() async {
     final FirebaseFirestore _firestore = FirebaseFirestore.instance;
@@ -55,7 +53,7 @@ class _profileState extends State<profile> {
           String namas = data['nama'];
           String emails = data['email'] ?? '';
           String images = data['image'] ??
-              '/data/user/0/com.gymhouse.project/cache/51d86ab7-3f00-4385-ad98-24b1ea781044/103238856_p0.jpg';
+              '/data/user/0/com.gymhouse.project/cache/1de514af-8fd2-4190-9cb0-4b93ad894c8b/00109-2251713052-(extremely detailed CG unity 8k wallpaper,masterpiece, best quality, ultra-detailed),(best illumination, best shadow, an extreme.jpg';
 
           setState(() {
             nama = namas;

@@ -3,6 +3,8 @@ import 'package:gymhouse_project/Components/HomePages/profile/profile.dart';
 import 'package:gymhouse_project/utils/constant.dart';
 
 import '../Subscription/subscription.dart';
+import '../WorkoutRoutine/goals.dart';
+import '../WorkoutRoutine/mainwo.dart';
 
 class homepage extends StatelessWidget {
   const homepage({Key? key}) : super(key: key);
@@ -16,7 +18,7 @@ class homepage extends StatelessWidget {
         elevation: 0,
         toolbarHeight: 100.0,
         title: Text(
-          "Homepage",
+          "Gymhouse",
           style: mTitleStyleNameAppbar,
         ),
         leading: IconButton(
@@ -42,47 +44,68 @@ class homepage extends StatelessWidget {
               SizedBox(
                 height: 20,
               ),
-              Container(
-                margin: EdgeInsets.only(left: 10, right: 10),
-                padding: EdgeInsets.all(60.0),
-                decoration: BoxDecoration(
-                  color: Color(0xFF050522),
-                  borderRadius: BorderRadius.circular(10.0),
-                ),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      'GOALS',
-                      textAlign: TextAlign.start,
-                      style: mTitleStyleGymhouse,
-                    )
-                  ],
+              InkWell(
+                onTap: () {
+                  showModalBottomSheet(
+                      //enableDrag: false,
+                      //isDismissible: false,
+                      isScrollControlled: true, //supaya bisa di scroll
+                      backgroundColor: Colors.transparent,
+                      context: context,
+                      builder: (context) => goals());
+                },
+                child: Container(
+                  margin: EdgeInsets.only(left: 10, right: 10),
+                  padding: EdgeInsets.all(60.0),
+                  decoration: BoxDecoration(
+                    color: Color(0xFF050522),
+                    borderRadius: BorderRadius.circular(10.0),
+                  ),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        'GOALS',
+                        textAlign: TextAlign.start,
+                        style: mTitleStyleGymhouse,
+                      )
+                    ],
+                  ),
                 ),
               ),
               SizedBox(
                 height: 20,
               ),
-              Container(
-                margin: EdgeInsets.only(left: 10, right: 10),
-                padding: EdgeInsets.all(45.0),
-                decoration: BoxDecoration(
-                  color: Color(0xFF050522),
-                  borderRadius: BorderRadius.circular(10.0),
-                ),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      'WORKOUT\nROUTINE',
-                      textAlign: TextAlign.start,
-                      style: mTitleStyleGymhouse,
-                    )
-                  ],
-                ),
-              ),
+              InkWell(
+                  onTap: () {
+                    showModalBottomSheet(
+                        //enableDrag: false,
+                        //isDismissible: false,
+                        isScrollControlled: true, //supaya bisa di scroll
+                        backgroundColor: Colors.transparent,
+                        context: context,
+                        builder: (context) => mainworkout());
+                  },
+                  child: Container(
+                    margin: EdgeInsets.only(left: 10, right: 10),
+                    padding: EdgeInsets.all(45.0),
+                    decoration: BoxDecoration(
+                      color: Color(0xFF050522),
+                      borderRadius: BorderRadius.circular(10.0),
+                    ),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          'WORKOUT\nROUTINE',
+                          textAlign: TextAlign.start,
+                          style: mTitleStyleGymhouse,
+                        )
+                      ],
+                    ),
+                  )),
               SizedBox(
                 height: 20,
               ),
@@ -111,10 +134,6 @@ class homepage extends StatelessWidget {
                           'MEMBERSHIP',
                           style: mTitleStyleGymhouse,
                         ),
-                        Text(
-                          'Nikmati Keuntungan',
-                          style: mTitle2,
-                        )
                       ],
                     ),
                   ))

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:gymhouse_project/Components/Membership_plus/MembershipPlusForm.dart';
 import 'package:gymhouse_project/Screens/Trainer/trainerscreens.dart';
 import 'package:gymhouse_project/utils/constant.dart';
+import 'package:flutter_webview_plugin/flutter_webview_plugin.dart';
 
 class membership extends StatelessWidget {
   const membership({Key? key});
@@ -54,13 +55,14 @@ class membership extends StatelessWidget {
                 color: Color(0xFF398AB9),
                 imagePath: 'assets/images/OBJECTSjadwal.png',
                 onTap: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) =>
-                          MembershipPlusForm(), // Navigate to MembershipPlusForm widget
-                    ),
-                  );
+                  const url =
+                      'https://api.whatsapp.com/send?phone=6281390073684&text=halo%2C%20saya%20ingin%20membuat%20jadwal%20untuk%20latihan%20di%20gymhouse';
+                  Navigator.of(context).push(MaterialPageRoute(
+                      builder: (_) => WebviewScaffold(
+                          url: url,
+                          appBar: AppBar(
+                            title: Text("WebView"),
+                          ))));
                 },
               ),
               SizedBox(

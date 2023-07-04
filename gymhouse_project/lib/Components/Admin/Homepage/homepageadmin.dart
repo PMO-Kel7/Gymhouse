@@ -5,7 +5,7 @@ import 'package:gymhouse_project/utils/constant.dart';
 // import '../Subscription/subscription.dart';
 
 class homepageadmin extends StatelessWidget {
-  const homepageadmin ({Key? key}) : super(key: key);
+  const homepageadmin({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -54,7 +54,7 @@ class homepageadmin extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      'GOALS',
+                      'INCOME',
                       textAlign: TextAlign.start,
                       style: mTitleStyleGymhouse,
                     )
@@ -76,7 +76,7 @@ class homepageadmin extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      'WORKOUT\nROUTINE',
+                      'EXPENSE',
                       textAlign: TextAlign.start,
                       style: mTitleStyleGymhouse,
                     )
