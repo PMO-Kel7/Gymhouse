@@ -3,6 +3,7 @@ import 'package:gymhouse_project/Components/Membership_plus/MembershipPlusForm.d
 import 'package:gymhouse_project/Screens/Trainer/trainerscreens.dart';
 import 'package:gymhouse_project/utils/constant.dart';
 import 'package:flutter_webview_plugin/flutter_webview_plugin.dart';
+import 'package:gymhouse_project/Screens/Equipment/equipmentscreens.dart';
 
 class membership extends StatelessWidget {
   const membership({Key? key});
@@ -94,7 +95,7 @@ class membership extends StatelessWidget {
                     context,
                     MaterialPageRoute(
                       builder: (context) =>
-                          MembershipPlusForm(), // Navigate to MembershipPlusForm widget
+                          equipment(), // Navigate to equipment widget
                     ),
                   );
                 },
