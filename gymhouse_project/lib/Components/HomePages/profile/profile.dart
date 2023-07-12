@@ -32,7 +32,7 @@ class _profileState extends State<profile> {
   String nama = "";
   String email = "";
   String image =
-      "/data/user/0/com.gymhouse.project/cache/1de514af-8fd2-4190-9cb0-4b93ad894c8b/00109-2251713052-(extremely detailed CG unity 8k wallpaper,masterpiece, best quality, ultra-detailed),(best illumination, best shadow, an extreme.jpg";
+      "/data/user/0/com.gymhouse.project/cache/80154dbe-334d-4824-a567-7b76da0093df/FB_IMG_1689076570602.jpg";
 
   Future<void> getUser() async {
     final FirebaseFirestore _firestore = FirebaseFirestore.instance;
@@ -53,7 +53,7 @@ class _profileState extends State<profile> {
           String namas = data['nama'];
           String emails = data['email'] ?? '';
           String images = data['image'] ??
-              '/data/user/0/com.gymhouse.project/cache/1de514af-8fd2-4190-9cb0-4b93ad894c8b/00109-2251713052-(extremely detailed CG unity 8k wallpaper,masterpiece, best quality, ultra-detailed),(best illumination, best shadow, an extreme.jpg';
+              '/data/user/0/com.gymhouse.project/cache/80154dbe-334d-4824-a567-7b76da0093df/FB_IMG_1689076570602.jpg';
 
           setState(() {
             nama = namas;

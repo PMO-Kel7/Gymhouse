@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:gymhouse_project/Components/WorkoutRoutine/goals.dart';
+import 'package:gymhouse_project/Components/WorkoutRoutine/goals/home.dart';
 import 'package:gymhouse_project/Components/WorkoutRoutine/planks.dart';
 import 'package:gymhouse_project/Components/WorkoutRoutine/pushup.dart';
 import 'package:gymhouse_project/utils/constant.dart';
@@ -29,7 +30,7 @@ class mainworkout extends StatelessWidget {
             MenuContainer(
               title: 'Goals',
               color: Color.fromARGB(255, 70, 149, 151),
-              route: goals(),
+              route: Goalsnote(),
               imagePath: 'assets/images/gym1.png',
             ),
             SizedBox(
