@@ -12,11 +12,9 @@ import 'package:gymhouse_project/utils/constant.dart';
 class SignInform extends StatefulWidget {
   @override
   _SignInformState createState() => _SignInformState();
-  
 }
 
 class _SignInformState extends State<SignInform> {
-
   @override
   void initState() {
     // TODO: implement initState
@@ -27,7 +25,7 @@ class _SignInformState extends State<SignInform> {
   TextEditingController _emailController = TextEditingController();
   TextEditingController _passwordController = TextEditingController();
   bool _rememberMe = false;
-   String role = "";
+  String role = "";
   bool rolekah = false;
 
   void _loginUser() {
@@ -37,52 +35,49 @@ class _SignInformState extends State<SignInform> {
       password: _passwordController.text,
     )
         .then((value) async {
+      if (value != null) {
+        final FirebaseFirestore _firestore = FirebaseFirestore.instance;
 
-          if(value != null) {
-                final FirebaseFirestore _firestore = FirebaseFirestore.instance;
+        final FirebaseAuth _firebaseAuth = FirebaseAuth.instance;
 
-            final FirebaseAuth _firebaseAuth = FirebaseAuth.instance;
+        User? currentUser = _firebaseAuth.currentUser;
+        String uid = currentUser!.uid;
+        print('data uid $uid');
 
-            User? currentUser = _firebaseAuth.currentUser;
-            String uid = currentUser!.uid;
-            print('data uid $uid');
+        if (currentUser != null) {
+          String uid = currentUser.uid;
 
-            if (currentUser != null) {
-      String uid = currentUser.uid;
+          DocumentSnapshot snapshot =
+              await _firestore.collection('users').doc(uid).get();
 
-      DocumentSnapshot snapshot =
-          await _firestore.collection('users').doc(uid).get();
+          if (snapshot.exists) {
+            Map<String, dynamic>? data =
+                snapshot.data() as Map<String, dynamic>;
 
-      if (snapshot.exists) {
-        Map<String, dynamic>? data = snapshot.data() as Map<String, dynamic>;
+            if (data != null) {
+              String roles = data['role'];
+              setState(() {
+                role = roles;
+              });
+            }
+          }
+        }
+        try {
+          if (role == 'admin') {
+            print("Login Successful");
 
-        if (data != null) {
-          String roles = data['role'];
-          setState(() {
-            role = roles;
-          });
+            Navigator.push(context,
+                MaterialPageRoute(builder: (context) => BtnNavBarAdmin()));
+          } else {
+            print("Login Successful");
+
+            Navigator.push(
+                context, MaterialPageRoute(builder: (context) => BtnNavBar()));
+          }
+        } catch (e) {
+          print('Error $e');
         }
       }
-    }
-  try {
-    if(role == 'admin'){
-            print("Login Successful");
-
-            Navigator.push(context, MaterialPageRoute(builder: (context) => BtnNavBarAdmin()));
-          
-          }else{
-            print("Login Successful");
-
-            Navigator.push(context, MaterialPageRoute(builder: (context) => BtnNavBar()));
-          }
-  } catch (e) {
-    print('Error $e');
-  }
-      
-    
-          }
-     
-          
     }).catchError((error) {
       print("Error: ${error.toString()}");
       showDialog(
@@ -150,7 +145,7 @@ class _SignInformState extends State<SignInform> {
     });
   }
 
-
+  bool _passwordVisible = false;
 
   @override
   Widget build(BuildContext context) {
@@ -166,9 +161,9 @@ class _SignInformState extends State<SignInform> {
               labelText: 'Email Address',
               hintText: 'info@example.com',
               floatingLabelBehavior: FloatingLabelBehavior.always,
-              suffixIcon: CustomSurffixIcon(
-                svgIcon: "assets/icons/Eye.svg",
-              ),
+              // suffixIcon: CustomSurffixIcon(
+              //   svgIcon: "assets/icons/Eye.svg",
+              // ),
             ),
             validator: (value) {
               if (value!.isEmpty) {
@@ -183,14 +178,22 @@ class _SignInformState extends State<SignInform> {
           SizedBox(height: getProportionateScreenHeight(20)),
           TextFormField(
             controller: _passwordController,
-            obscureText: true,
+            obscureText: !_passwordVisible,
             style: mTitleStyle,
             decoration: InputDecoration(
               labelText: 'Password',
               hintText: 'Enter your password',
               floatingLabelBehavior: FloatingLabelBehavior.always,
-              suffixIcon: CustomSurffixIcon(
-                svgIcon: "assets/icons/Lock.svg",
+              suffixIcon: GestureDetector(
+                onTap: () {
+                  setState(() {
+                    _passwordVisible = !_passwordVisible;
+                  });
+                },
+                child: Icon(
+                  _passwordVisible ? Icons.visibility : Icons.visibility_off,
+                  color: Colors.grey,
+                ),
               ),
             ),
             validator: (value) {
