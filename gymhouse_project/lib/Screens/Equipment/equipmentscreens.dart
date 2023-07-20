@@ -74,7 +74,7 @@ class EquipmentsUser extends StatelessWidget {
                           height: 30,
                           decoration: BoxDecoration(
                             image: DecorationImage(
-                              image: NetworkImage("https://via.placeholder.com/29x30"),
+                              image: NetworkImage(""),
                               fit: BoxFit.fill,
                             ),
                           ),
@@ -128,7 +128,7 @@ class EquipmentsUser extends StatelessWidget {
                   height: 30,
                   decoration: BoxDecoration(
                     image: DecorationImage(
-                      image: NetworkImage("https://th.bing.com/th/id/OIP.KGam_cb4gn9AyzCgBfpiugAAAA?pid=ImgDet&w=183&h=215&c=7"),
+                      image: NetworkImage("https://www.babatpost.com/wp-content/uploads/Berbagai-Jenis-Alat-Fitness-di-Tempat-Gym-dan-Manfaatnya.jpg"),
                       fit: BoxFit.fill,
                     ),
                   ),
@@ -142,7 +142,7 @@ class EquipmentsUser extends StatelessWidget {
                   height: 30,
                   decoration: BoxDecoration(
                     image: DecorationImage(
-                      image: NetworkImage("https://via.placeholder.com/29x30"),
+                      image: NetworkImage(""),
                       fit: BoxFit.fill,
                     ),
                   ),
@@ -178,7 +178,7 @@ class EquipmentsUser extends StatelessWidget {
                           height: 30,
                           decoration: BoxDecoration(
                             image: DecorationImage(
-                              image: NetworkImage("https://via.placeholder.com/29x30"),
+                              image: NetworkImage(""),
                               fit: BoxFit.fill,
                             ),
                           ),
@@ -267,7 +267,7 @@ class EquipmentsUser extends StatelessWidget {
                           height: 53,
                           decoration: ShapeDecoration(
                             image: DecorationImage(
-                              image: NetworkImage("https://via.placeholder.com/53x53"),
+                              image: NetworkImage(""),
                               fit: BoxFit.fill,
                             ),
                             shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
@@ -333,7 +333,7 @@ class EquipmentsUser extends StatelessWidget {
                           height: 53,
                           decoration: ShapeDecoration(
                             image: DecorationImage(
-                              image: NetworkImage("https://via.placeholder.com/53x53"),
+                              image: NetworkImage(""),
                               fit: BoxFit.fill,
                             ),
                             shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
@@ -399,7 +399,7 @@ class EquipmentsUser extends StatelessWidget {
                           height: 53,
                           decoration: ShapeDecoration(
                             image: DecorationImage(
-                              image: NetworkImage("https://via.placeholder.com/53x53"),
+                              image: NetworkImage(""),
                               fit: BoxFit.fill,
                             ),
                             shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
@@ -465,7 +465,7 @@ class EquipmentsUser extends StatelessWidget {
                           height: 53,
                           decoration: ShapeDecoration(
                             image: DecorationImage(
-                              image: NetworkImage("https://via.placeholder.com/53x53"),
+                              image: NetworkImage(""),
                               fit: BoxFit.fill,
                             ),
                             shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
@@ -531,7 +531,7 @@ class EquipmentsUser extends StatelessWidget {
                           height: 53,
                           decoration: ShapeDecoration(
                             image: DecorationImage(
-                              image: NetworkImage("https://via.placeholder.com/53x53"),
+                              image: NetworkImage(""),
                               fit: BoxFit.fill,
                             ),
                             shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
@@ -597,7 +597,7 @@ class EquipmentsUser extends StatelessWidget {
                           height: 53,
                           decoration: ShapeDecoration(
                             image: DecorationImage(
-                              image: NetworkImage("https://via.placeholder.com/53x53"),
+                              image: NetworkImage(""),
                               fit: BoxFit.fill,
                             ),
                             shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
@@ -624,7 +624,7 @@ class EquipmentsUser extends StatelessWidget {
                           height: 214,
                           decoration: ShapeDecoration(
                             image: DecorationImage(
-                              image: NetworkImage("https://via.placeholder.com/320x214"),
+                              image: NetworkImage(""),
                               fit: BoxFit.fill,
                             ),
                             shape: RoundedRectangleBorder(
@@ -704,7 +704,7 @@ class EquipmentsUser extends StatelessWidget {
                           height: 214,
                           decoration: ShapeDecoration(
                             image: DecorationImage(
-                              image: NetworkImage("https://via.placeholder.com/320x214"),
+                              image: NetworkImage(""),
                               fit: BoxFit.fill,
                             ),
                             shape: RoundedRectangleBorder(

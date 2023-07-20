@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:gymhouse_project/Components/HomePages/file_navigation.dart';
 import 'package:gymhouse_project/Components/Membership_plus/MembershipPlusForm.dart';
 import 'package:gymhouse_project/Screens/Trainer/trainerscreens.dart';
 import 'package:gymhouse_project/utils/constant.dart';
@@ -22,6 +23,18 @@ class membership extends StatelessWidget {
             style: mTitleStyleNameAppbar,
           ),
         ),
+        leading: IconButton(
+          icon: Icon(
+            Icons.arrow_back_ios,
+            color: Color.fromARGB(255, 255, 254, 254),
+          ),
+          iconSize: 25.0,
+          onPressed: () {
+                        Navigator.pushReplacement(
+              context,
+              MaterialPageRoute(builder: (context) => BtnNavBar()));
+          },
+        ),
       ),
       body: Container(
         padding: EdgeInsets.all(40),
@@ -31,12 +44,10 @@ class membership extends StatelessWidget {
               Column(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
               ),
-              SizedBox(
-                height: 45,
-              ),
               MenuContainer(
                 title: 'Course',
-                color: Color(0xFF398AB9),
+                style: mEditProfile,
+                color: Color.fromARGB(255, 164, 185, 57),
                 imagePath: 'assets/images/OBJECTSorang_tapa.png',
                 onTap: () {
                   Navigator.push(
@@ -52,12 +63,14 @@ class membership extends StatelessWidget {
                 height: 20,
               ),
               MenuContainer(
-                title: 'Schedule',
-                color: Color(0xFF398AB9),
+                
+                title: 'Make a \nSchedule',
+                style: mEditProfile,
+                color: Color.fromARGB(255, 164, 185, 57),
                 imagePath: 'assets/images/OBJECTSjadwal.png',
                 onTap: () {
                   const url =
-                      'https://api.whatsapp.com/send?phone=6281390073684&text=halo%2C%20saya%20ingin%20membuat%20jadwal%20untuk%20latihan%20di%20gymhouse';
+                      'https://wa.link/jci0c7';
                   Navigator.of(context).push(MaterialPageRoute(
                       builder: (_) => WebviewScaffold(
                           url: url,
@@ -71,7 +84,8 @@ class membership extends StatelessWidget {
               ),
               MenuContainer(
                 title: 'Trainers',
-                color: Color(0xFF398AB9),
+                style: mEditProfile,
+                color: Color.fromARGB(255, 164, 185, 57),
                 imagePath: 'assets/images/Speech Bubbles (2)trainer.png',
                 onTap: () {
                   Navigator.push(
@@ -88,7 +102,8 @@ class membership extends StatelessWidget {
               ),
               MenuContainer(
                 title: 'Equipment',
-                color: Color(0xFF398AB9),
+                style: mEditProfile,
+                color: Color.fromARGB(255, 164, 185, 57),
                 imagePath: 'assets/images/DESIGNED BY FREEPIKequipment.png',
                 onTap: () {
                   Navigator.push(
@@ -112,13 +127,15 @@ class MenuContainer extends StatelessWidget {
   final String title;
   final Color color;
   final VoidCallback onTap; // Add onTap callback
-  final String imagePath; // Add imagePath parameter for the image
+  final String imagePath;
+  final TextStyle style; // Add imagePath parameter for the image
 
   const MenuContainer({
     required this.title,
     required this.color,
     required this.onTap,
-    required this.imagePath, // Add imagePath parameter
+    required this.imagePath,
+    required this.style // Add imagePath parameter
   });
 
   @override
@@ -126,7 +143,7 @@ class MenuContainer extends StatelessWidget {
     return InkWell(
         onTap: onTap,
         child: Container(
-          height: 100.0,
+          height: 120.0,
           decoration: BoxDecoration(
             color: color,
             borderRadius: BorderRadius.circular(8.0),
@@ -144,10 +161,11 @@ class MenuContainer extends StatelessWidget {
               ),
               Text(
                 title,
-                style: TextStyle(
-                    fontSize: 24.0,
-                    color: Colors.white,
-                    fontWeight: FontWeight.bold),
+              style: style.copyWith(
+                fontSize: 25.0,
+                fontWeight: FontWeight.bold,
+                color: Colors.white,
+              ),
               )
             ],
           ),

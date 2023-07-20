@@ -64,6 +64,7 @@ class _EditScreenState extends State<EditScreen> {
                     hintText: 'Title',
                     hintStyle: TextStyle(color: Colors.grey, fontSize: 30)),
               ),
+              SizedBox(height:20),
               TextField(
                 controller: _contentController,
                 style: const TextStyle(

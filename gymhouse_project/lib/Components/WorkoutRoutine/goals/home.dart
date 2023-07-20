@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:gymhouse_project/Components/WorkoutRoutine/goals/edit.dart';
 import 'package:gymhouse_project/models/note.dart';
 import 'package:gymhouse_project/utils/colors.dart';
+import 'package:gymhouse_project/utils/constant.dart';
 import 'package:intl/intl.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 // import 'package:cloud_firestore/cloud_firestore.dart';
@@ -127,9 +128,9 @@ String noteToJson(Note note) {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                const Text(
-                  'Notes',
-                  style: TextStyle(fontSize: 30, color: Colors.white),
+                 Text(
+                  'Catat Disini',
+                  style: mEditDetailDataAnda1,
                 ),
                 IconButton(
                     onPressed: () {

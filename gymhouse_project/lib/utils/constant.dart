@@ -93,8 +93,29 @@ var mTitleStyleCreateAccount3 = GoogleFonts.nunitoSans(
 var mTitleStyleGymhouse = GoogleFonts.nunitoSans(
     fontWeight: FontWeight.w700, color: mBackgroundColor, fontSize: 30);
 
+var mTitleStyleGymhouse1 = GoogleFonts.nunitoSans(
+    fontWeight: FontWeight.w700, color: mBackgroundColor, fontSize: 28);
+
+var mTitleStyleGymhouse2 = GoogleFonts.nunitoSans(
+    fontWeight: FontWeight.w500, color: mBackgroundColor, fontSize: 16);
+
 var mTitleStyleNameAppbar = GoogleFonts.nunitoSans(
     fontWeight: FontWeight.w700, color: mBackgroundColor, fontSize: 25);
+
+var mTitleStyleNameAppbar2 = GoogleFonts.nunitoSans(
+    fontWeight: FontWeight.w700, color: kPrimaryColor, fontSize: 25);
+
+var mTitleStylesubs = GoogleFonts.nunitoSans(
+    fontWeight: FontWeight.w700, color: kPrimaryColor, fontSize: 35);
+
+var mTitleStylesubs2 = GoogleFonts.nunitoSans(
+    fontWeight: FontWeight.w700, color: kColorRedSlow, fontSize: 35);
+
+var mTitleStylesubs3 = GoogleFonts.nunitoSans(
+    fontWeight: FontWeight.w700, color: kPrimaryColor, fontSize: 15);
+
+var mTitleStylesubs4 = GoogleFonts.nunitoSans(
+    fontWeight: FontWeight.w700, color: kColorRedSlow, fontSize: 20);
 
 var mTitleStyleNameProfile = GoogleFonts.nunitoSans(
     fontWeight: FontWeight.w700, color: kPrimaryColor, fontSize: 20);
@@ -141,11 +162,20 @@ var mTitle2 = GoogleFonts.notoSans(
 var mTitleStyleYoga= GoogleFonts.nunitoSans(
     fontWeight: FontWeight.w700, color: kPrimaryColor, fontSize: 20);
 
+var mTitleStyleYoga1= GoogleFonts.nunitoSans(
+    fontWeight: FontWeight.w800, color: kPrimaryColor, fontSize: 25);
+
 var mEditProfile = GoogleFonts.nunitoSans(
     fontWeight: FontWeight.w700, color: mBackgroundColor, fontSize: 17);
 
+var mEditProfile2= GoogleFonts.nunitoSans(
+    fontWeight: FontWeight.w500, color: mBackgroundColor, fontSize: 15);
+
 var mEditDetailDataAnda = GoogleFonts.nunitoSans(
     fontWeight: FontWeight.w700, color: mBackgroundColor, fontSize: 18);
+
+var mEditDetailDataAnda1 = GoogleFonts.nunitoSans(
+    fontWeight: FontWeight.w700, color: mBackgroundColor, fontSize: 25);
 
 
 

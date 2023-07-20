@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_webview_plugin/flutter_webview_plugin.dart';
+import 'package:gymhouse_project/utils/constant.dart';
+
 
 Widget makeDismissible({required BuildContext context, required Widget child}) =>
     GestureDetector(
@@ -30,28 +32,19 @@ Widget buildSheet(BuildContext context) => makeDismissible(
               Text(
                 '30 DAYS',
                 textAlign: TextAlign.center,
-                style: TextStyle(
-                  color: const Color.fromARGB(255, 0, 0, 0),
-                  fontSize: 40,
-                ),
+                style: mTitleStylesubs,
               ),
               SizedBox(height: 5),
               Text(
                 'GYM MEMBERSHIP',
                 textAlign: TextAlign.center,
-                style: TextStyle(
-                  color: const Color.fromARGB(255, 255, 0, 0),
-                  fontSize: 35,
-                ),
+                style: mTitleStylesubs2
               ),
               SizedBox(height: 15),
               Text(
                 'Create a Membership Fit for a Star',
                 textAlign: TextAlign.center,
-                style: TextStyle(
-                  color: Color.fromARGB(255, 0, 0, 0),
-                  fontSize: 15,
-                ),
+                style: mTitleStylesubs3
               ),
               SizedBox(height: 15),
               Container(
@@ -76,10 +69,7 @@ Widget buildSheet(BuildContext context) => makeDismissible(
               Text(
                 'Complete Access, Maximum Performance Mode\nCraft a Membership Tailored to Your Needs\nTotal Access, Optimal Performance Mode,\nMore Learning with Video Training',
                 textAlign: TextAlign.center,
-                style: TextStyle(
-                  color: Color.fromARGB(255, 0, 0, 0),
-                  fontSize: 15,
-                ),
+                style: mTitleStylesubs3
               ),
               SizedBox(height: 40),
               Center(
@@ -108,10 +98,7 @@ Widget buildSheet(BuildContext context) => makeDismissible(
                     children: [
                       Text(
                         'JOIN NOW',
-                        style: TextStyle(
-                          color: Colors.red,
-                          fontSize: 20,
-                        ),
+                        style: mTitleStylesubs4
                       ),
                       Text(
                         'Rp140.000/Bulan',
